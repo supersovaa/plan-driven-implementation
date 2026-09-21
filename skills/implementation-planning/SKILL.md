@@ -12,7 +12,6 @@ Do not use it to perform product or architecture design that should be decided s
 
 Before choosing the next work, inspect the latest state of the explicitly relevant base branch.
 Treat that branch as the source of confirmed plan state.
-Do not treat an open PR, a closed-but-unmerged PR, or documents that exist only on another branch as completed work merely because the implementation exists there.
 
 Use repository conventions when they already define where implementation plans live and how they are indexed.
 Otherwise, prefer semantic work directories under `docs/implementation/`.

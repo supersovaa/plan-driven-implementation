@@ -11,6 +11,7 @@ The plans are repository-persistent implementation contracts, not informal task 
 ## Read the planning material before implementation
 
 Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state and dependencies, referenced requirement and design canon, and relevant repository-level implementation rules.
+Treat the explicitly relevant base branch as the source of confirmed plan state.
 
 Implement only plans explicitly selected for the current task.
 Do not add another plan merely because it is currently implementable.
@@ -19,12 +20,13 @@ If a selected plan depends on unfinished work that is not selected for the curre
 Multiple selected plans may be implemented in one session or one PR.
 Respect their dependency order and keep each plan as an independent completion boundary.
 A plan completed earlier in the same task may satisfy a dependency of a later selected plan even though it has not yet been merged to the base branch.
-Do not use completion that exists only in some other unmerged PR as dependency satisfaction.
 
 ## Preserve the plan boundary, not an implementation recipe
 
 Adapt implementation details to the current repository as needed.
 A stale implementation assumption does not require replanning if the plan's purpose, scope, out-of-scope work, and completion criteria can still be preserved.
+Once implementation of a selected plan begins, treat that plan as fixed for that attempt.
+Do not rewrite it to accommodate implementation decisions.
 
 Within that boundary, make implementation and design decisions autonomously.
 When a project defines which kinds of canon may be changed, follow that policy.
@@ -51,6 +53,7 @@ Do not restate canonical requirements or design in `result.md`.
 Permanent decisions that matter beyond this work unit belong in the appropriate canon; record in the result that the decision was made and what canon was updated.
 
 A provisional decision is a decision made so implementation can proceed even though it may be important enough for later user approval.
+Keep provisional decisions distinguishable from ordinary implementation decisions in `result.md`.
 Do not model approval status inside `result.md`; record that the decision was provisional at implementation time.
 
 ## Complete one plan at a time
