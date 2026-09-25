@@ -1,6 +1,6 @@
 ---
 name: plan-implementation
-description: Implement explicitly selected repository plans while preserving plan boundaries, recording implementation decisions and results, and stopping cleanly when replanning is required.
+description: Implement explicitly selected repository plans while preserving plan boundaries, auditing completion before marking plans complete, recording implementation decisions and results, and stopping cleanly when replanning is required.
 ---
 
 # Plan Implementation
@@ -56,9 +56,31 @@ A provisional decision is a decision made so implementation can proceed even tho
 Keep provisional decisions distinguishable from ordinary implementation decisions in `result.md`.
 Do not model approval status inside `result.md`; record that the decision was provisional at implementation time.
 
+## Audit completion before marking a plan completed
+
+Immediately before completing a selected plan, reread its `plan.md` and audit these items individually:
+
+- implementation scope;
+- implementation constraints that impose requirements on the implementation result;
+- completion criteria.
+
+For every applicable item, confirm concrete implementation evidence and validation evidence.
+
+For behavioral or integration responsibilities, including connecting, retaining, exposing, resuming, advancing automatically, or applying behavior to existing processing, confirm that the required path actually works.
+Types, APIs, helpers, and passing test suites may support that evidence; behavioral and integration responsibilities require evidence of the resulting behavior.
+
+Use subsequent plans to confirm responsibility boundaries.
+Responsibilities assigned to the current plan remain in the current plan, while usage or integration first assigned to a later plan remains in that later plan.
+
+Mark the plan `completed` only when every audited item has sufficient implementation and validation evidence.
+
+When the audit finds an unmet item, continue implementation within the current boundary, use `replan-required` when the boundary must change, or end the work with the plan incomplete and record the remaining work in `result.md`.
+
+`result.md` may state that no incomplete work remains after the audit passes.
+
 ## Complete one plan at a time
 
-For each selected plan, once its completion criteria are met:
+For each selected plan, once its completion audit passes:
 
 - validate that plan;
 - finalize its `result.md`;
