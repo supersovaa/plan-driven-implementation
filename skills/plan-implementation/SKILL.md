@@ -79,7 +79,7 @@ A later plan's intent to use the current plan's foundation does not move impleme
 Conversely, do not add usage or integration that is assigned for the first time to a later plan to the current plan's completion criteria.
 
 A passing test suite is supporting evidence, not a substitute for item-by-item completion evidence.
-If any completion criterion remains unverified, do not mark the plan `completed`.
+Mark the plan `completed` only when every applicable audited item has sufficient implementation evidence and validation evidence.
 
 If the completion audit finds an unmet item:
 
@@ -91,7 +91,7 @@ State that there is no incomplete work in `result.md` only when the completion a
 
 ## Complete one plan at a time
 
-For each selected plan, once its completion audit confirms its completion criteria are met:
+For each selected plan, once its completion audit confirms sufficient implementation and validation evidence for every applicable audited item:
 
 - validate that plan;
 - finalize its `result.md`;
