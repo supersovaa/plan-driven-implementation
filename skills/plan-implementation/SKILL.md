@@ -1,6 +1,6 @@
 ---
 name: plan-implementation
-description: Implement explicitly selected repository plans while preserving plan boundaries, proving completion criteria before marking plans complete, recording implementation decisions and results, and stopping cleanly when replanning is required.
+description: Implement explicitly selected repository plans while preserving plan boundaries, auditing completion before marking plans complete, recording implementation decisions and results, and stopping cleanly when replanning is required.
 ---
 
 # Plan Implementation
@@ -58,40 +58,29 @@ Do not model approval status inside `result.md`; record that the decision was pr
 
 ## Audit completion before marking a plan completed
 
-Immediately before setting a selected plan to `completed`, reread its `plan.md` and perform an explicit completion audit.
-Do not infer completion merely because major types, APIs, or helper functions exist, or because the existing test suite passes.
-
-Check at least these parts of the plan item by item:
+Immediately before completing a selected plan, reread its `plan.md` and audit these items individually:
 
 - implementation scope;
 - implementation constraints that impose requirements on the implementation result;
 - completion criteria.
 
-For every applicable item, identify both concrete implementation evidence showing that the required responsibility is actually implemented and concrete validation evidence showing that the requirement was verified.
+For every applicable item, confirm concrete implementation evidence and validation evidence.
 
-For a completion criterion that requires behavior, the existence of a type, API, or helper function is not sufficient evidence of completion.
-Distinguish implementing foundational types from establishing the foundational responsibility required by the plan.
+For behavioral or integration responsibilities, including connecting, retaining, exposing, resuming, advancing automatically, or applying behavior to existing processing, confirm that the required path actually works.
+Types, APIs, helpers, and passing test suites may support that evidence; behavioral and integration responsibilities require evidence of the resulting behavior.
 
-When an item requires actual progression or integration, such as connecting, retaining, exposing, resuming, advancing automatically, or applying behavior to existing processing, verify that the required path is actually connected and that the behavior occurs as required by the current plan.
+Use subsequent plans to confirm responsibility boundaries.
+Responsibilities assigned to the current plan remain in the current plan, while usage or integration first assigned to a later plan remains in that later plan.
 
-Read subsequent plans to confirm responsibility boundaries.
-A later plan's intent to use the current plan's foundation does not move implementation scope or completion criteria explicitly assigned to the current `plan.md` into that later plan.
-Conversely, do not add usage or integration that is assigned for the first time to a later plan to the current plan's completion criteria.
+Mark the plan `completed` only when every audited item has sufficient implementation and validation evidence.
 
-A passing test suite is supporting evidence, not a substitute for item-by-item completion evidence.
-Mark the plan `completed` only when every applicable audited item has sufficient implementation evidence and validation evidence.
+When the audit finds an unmet item, continue implementation within the current boundary, use `replan-required` when the boundary must change, or end the work with the plan incomplete and record the remaining work in `result.md`.
 
-If the completion audit finds an unmet item:
-
-- continue implementation when it can be satisfied within the current plan boundary;
-- use `replan-required` under the existing policy when satisfying it requires changing the plan boundary;
-- if work must end without requiring replanning, do not mark the plan `completed`; record the incomplete work accurately in `result.md`.
-
-State that there is no incomplete work in `result.md` only when the completion audit confirms implementation and validation evidence for every applicable item.
+`result.md` may state that no incomplete work remains after the audit passes.
 
 ## Complete one plan at a time
 
-For each selected plan, once its completion audit confirms sufficient implementation and validation evidence for every applicable audited item:
+For each selected plan, once its completion audit passes:
 
 - validate that plan;
 - finalize its `result.md`;
