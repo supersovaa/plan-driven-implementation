@@ -13,6 +13,8 @@ The plans are repository-persistent implementation contracts, not informal task 
 Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state and dependencies, referenced requirement and design canon, and relevant repository-level implementation rules.
 Treat the explicitly relevant base branch as the source of confirmed work-unit state.
 Use the current plan and current canon for normal implementation; linked planning history is replanning context.
+Treat `planned` as the implementation-ready work-unit state.
+Route `replan-required` work units through implementation planning before implementation; completed work units remain completion records.
 
 Implement only plans explicitly selected for the current task.
 Do not add another plan merely because it is currently implementable.
