@@ -98,7 +98,7 @@ Parent plans are completed by their own integration-level completion criteria an
 
 ## Stop using an invalidated plan
 
-If a plan becomes `replan-required`, stop implementing against that plan and update its durable state so it is no longer treated as implementable.
+If a plan becomes `replan-required`, stop implementing against that plan. Update its durable state in the change that owns replanning so it is no longer treated as implementable.
 
 When a user directs replanning while an implementation PR is in scope, keep the replanning work out of that implementation PR. Treat the replanning instruction as sufficient to invoke the repository workflow and create a separate planning PR based on the relevant confirmed base state. Use the implementation PR as context without carrying its unfinished implementation changes into the planning PR.
 
