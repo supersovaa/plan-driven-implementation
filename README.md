@@ -37,7 +37,7 @@ Plan state is durable repository state, with these meanings:
 
 An invalidated unstarted plan remains current while it is `replan-required`; `problem.md` records the assumptions, invalidating change, and boundary impact needed for replanning.
 
-A replacement plan links directly to the immediately preceding plan. Superseded planning bundles use semantic history paths, remain reachable through predecessor links, and stay outside the active index. Replanning may follow that chain to detect repeated invalid assumptions; current canon and the current plan remain authoritative for implementation.
+A replacement plan links directly to the immediately preceding plan. Superseded planning bundles use semantic history paths, remain reachable through predecessor links, and stay outside the active index. Replanning may follow that chain to detect repeated invalid assumptions. Current canon remains authoritative, and the current plan defines the implementation boundary while its state is `planned`.
 
 When replanning is directed from an implementation PR, finish that PR first as a coherent stopped attempt: record the replanning context, set the affected plan to `replan-required`, and keep unfinished implementation work outside the confirmed merged state. Merge that implementation PR before creating the replacement planning PR. The replanning instruction implicitly includes creating the planning PR through the repository workflow after the implementation PR is merged.
 
