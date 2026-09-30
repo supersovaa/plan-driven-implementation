@@ -99,7 +99,8 @@ If a plan becomes `replan-required`, revert the unfinished changes made for that
 Do not revert already completed independent plans.
 
 Keep `result.md` concise: record that execution stopped and link to `problem.md`.
-Put the detailed replanning report in `problem.md`, including what was attempted, what invalidated the current plan boundary, what needs replanning, and that the unfinished changes were reverted.
+Put the detailed replanning context in `problem.md`, including what was attempted, what invalidated the current plan boundary, the resulting impact on that boundary, and that the unfinished changes were reverted.
+Keep this record causal and descriptive so later planning can derive a fresh boundary from current canon.
 Set the plan state to `replan-required` and commit the coherent stopped state.
 
 When the same work unit is later replanned and completed, obsolete stopped-attempt documents are removed by the planning workflow; Git history preserves them.
