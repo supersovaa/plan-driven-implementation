@@ -1,29 +1,23 @@
 ---
 name: plan-implementation
-description: Implement explicitly selected repository plans while preserving plan boundaries, auditing completion before marking plans complete, recording implementation decisions and results, and routing invalidated plans through replanning.
+description: Implement one explicitly selected repository plan while preserving its boundary, auditing completion before marking it complete, recording implementation decisions and results, and routing an invalidated plan through replanning.
 ---
 
 # Plan Implementation
 
-Use this skill to implement one or more explicitly selected implementation plans.
-The plans are repository-persistent implementation contracts, not informal task descriptions.
+Use this skill to implement one explicitly selected implementation plan.
+The plan is a repository-persistent implementation contract, not an informal task description.
 
 ## Read the planning material before implementation
 
 Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state and dependencies, referenced requirement and design canon, and relevant repository-level implementation rules.
 Treat the explicitly relevant base branch as the source of confirmed plan state.
 Use the current plan and current canon for normal implementation; linked planning history is replanning context.
-Implement only selected plans whose durable state is `planned`.
-Route `replan-required` plans through implementation planning before implementation; completed plans remain completion records.
+Implement the selected plan only when its durable state is `planned` and its dependencies are satisfied in confirmed repository state.
+Route a `replan-required` plan through implementation planning before implementation; a completed plan remains a completion record.
 
-Implement only plans explicitly selected for the current task.
-Do not add another plan merely because it is currently implementable.
-If a selected plan depends on unfinished work that is not selected for the current task, do not implement that plan; independent selected plans may still proceed.
-
-Multiple selected plans may be implemented in one session or one PR.
-When selected plans in one implementation PR need different next actions, split them into separate PRs so each PR can follow one coherent workflow.
-Respect their dependency order and keep each plan as an independent completion boundary.
-A plan completed earlier in the same task may satisfy a dependency of a later selected plan even though it has not yet been merged to the base branch.
+Use one implementation task and one implementation PR for the selected plan.
+Handle another plan as a separate implementation task and PR.
 
 ## Preserve the plan boundary, not an implementation recipe
 
@@ -38,8 +32,7 @@ When a project defines which kinds of canon may be changed, follow that policy.
 If no project policy exists, use a conservative default: design canon may be updated within the plan boundary, while requirements, rules, and external-specification canon are not changed by default.
 
 If completing the work requires changing the plan's purpose, scope, out-of-scope work, or completion criteria, stop that plan as `replan-required` instead of silently redefining it.
-Plans that do not depend on the stopped plan may continue.
-A dependent plan remains `planned` unless its own boundary is also known to require replanning.
+Other plans keep their current state unless their own boundaries are known to require replanning.
 
 ## Record what actually happened
 
@@ -83,9 +76,9 @@ When the audit finds an unmet item, continue implementation within the current b
 
 `result.md` may state that no incomplete work remains after the audit passes.
 
-## Complete one plan at a time
+## Complete the plan
 
-For each selected plan, once its completion audit passes:
+Once its completion audit passes:
 
 - validate that plan;
 - finalize its `result.md`;
@@ -94,7 +87,6 @@ For each selected plan, once its completion audit passes:
 - create a commit that contains the plan's coherent completed state.
 
 A plan may use multiple commits, but its completion commit must include the result, completed state, and required documentation synchronization.
-Do not wait until all selected plans are finished before recording earlier completed plans.
 
 Parent plans are completed by their own integration-level completion criteria and their own result; child completion alone does not automatically complete the parent.
 
@@ -105,8 +97,6 @@ Record the causal replanning context in `problem.md`, set the affected plan to `
 
 Before that implementation PR is merged, keep unfinished work for the invalidated plan outside confirmed repository state.
 The surrounding repository workflow may preserve that work separately for possible reuse; replanning does not require discarding it.
-Continue independent unfinished plans in separate implementation PRs before finishing the stopped PR.
-Already completed independent plans may remain in the stopped implementation PR.
 
 The replacement planning PR starts only after the repository workflow has merged the stopped implementation PR.
 Treat a user instruction to replan as sufficient to create that planning PR once the merge has occurred; merging the implementation PR remains a repository-workflow decision.
