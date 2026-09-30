@@ -28,6 +28,8 @@ Plan state is durable repository state, with these meanings:
 
 - `planned`: the current plan is ready to be implemented when its dependencies are satisfied.
 - `completed`: the current plan has been completed and its result recorded.
-- `replan-required`: the current plan cannot be completed without changing its implementation boundary.
+- `replan-required`: the work unit requires fresh planning because its plan boundary became stale or an implementation attempt stopped at that boundary.
+
+An invalidated unstarted plan may be removed while the work unit remains `replan-required`; `problem.md` keeps the assumptions, invalidating change, and boundary impact needed for replanning. Current canon remains authoritative.
 
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
