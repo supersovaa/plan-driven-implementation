@@ -40,7 +40,7 @@ A plan should define, in whatever structure fits the repository:
 - references to the relevant requirement and design canon;
 - implementation scope;
 - out-of-scope work;
-- the intended form and required behavior of temporary implementation, when a stage will be completed later;
+- the required behavior of temporary implementation, when a stage will be completed later;
 - constraints that are already settled and materially affect implementation;
 - what the implementer may decide autonomously;
 - completion criteria.
@@ -54,11 +54,11 @@ The plan defines what must be established and the boundary of the work; implemen
 When a use case should flow end to end before one stage reaches its final implementation, decide that staged approach in the plan.
 For each deferred stage, state:
 
-- whether the current work uses an empty/no-op implementation, minimal behavior, or another temporary form;
-- what input/output and observable behavior the temporary form must preserve so the surrounding flow can be implemented and validated;
-- what later work replaces or completes it.
+- what behavior the temporary implementation must provide so the surrounding flow can be implemented and validated;
+- what full behavior is deferred to later work.
 
-Treat the chosen temporary form as part of the current plan's completion criteria.
+Let the implementer choose the simplest temporary form that satisfies that contract.
+When a particular temporary form is already a settled constraint, record it with the other implementation constraints.
 Place the deferred full behavior in separate follow-up work when it is already settled enough to plan.
 
 ## Record dependencies centrally
