@@ -76,6 +76,10 @@ Do not persist transient execution state such as `in-progress` or derived state 
 
 ## Replanning
 
+When a user directs replanning while an implementation PR is in scope, finish that implementation PR as a coherent stopped attempt and leave its merge to the repository workflow. The merged state records the affected plan as `replan-required` and carries the causal `problem.md` context while leaving unfinished implementation work outside confirmed repository state. After the repository workflow has merged that implementation PR, create the replacement planning PR from the updated base branch. Treat the replanning instruction as sufficient to create that planning PR without requiring a separate request to open it.
+
+When a user directs a minor plan correction that preserves the current plan boundary, create the planning correction through the repository workflow. After that planning PR has been merged, update the implementation PR to the new base and follow the corrected current plan without entering `replan-required`.
+
 When a plan is `replan-required`, treat its current `plan.md` and `problem.md` as required replanning context.
 Read any `result.md`, relevant current canon, and index context as applicable.
 
@@ -88,10 +92,10 @@ When settled requirements or design changes invalidate an unstarted plan, keep t
 Keep this record causal and descriptive, and set the plan to `replan-required` in the same change.
 
 When replanning, follow linked planning history only as far as needed to check for repeated invalid assumptions or boundaries.
-For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when the stopped attempt matters.
+For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when one exists and its execution result matters to the new boundary.
 Treat current canon as authoritative and historical records as context rather than current constraints.
 
-Preserve the superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
+Preserve the superseded planning records that exist as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
 Use repository conventions for historical placement; otherwise keep each superseded planning bundle in a semantic subdirectory under `history/`.
 Keep historical plans out of the active index and keep predecessor links traversable after archival.
 Return the current plan to `planned` in the same change.
