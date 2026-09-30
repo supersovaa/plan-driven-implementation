@@ -39,6 +39,6 @@ An invalidated unstarted plan remains current while it is `replan-required`; `pr
 
 A replacement plan links directly to the immediately preceding plan. Superseded planning bundles use semantic history paths, remain reachable through predecessor links, and stay outside the active index. Replanning may follow that chain to detect repeated invalid assumptions; current canon and the current plan remain authoritative for implementation.
 
-Replanning does not by itself require unfinished implementation changes to be reverted or preserved. Those changes remain working material until a replacement plan and the latest confirmed base state establish what can be reused.
+Replanning does not by itself require unfinished implementation changes to be reverted or preserved. Those changes remain working material until a replacement plan and the confirmed repository state that plan is based on establish what can be reused.
 
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
