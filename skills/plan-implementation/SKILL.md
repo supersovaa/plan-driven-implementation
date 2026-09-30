@@ -1,6 +1,6 @@
 ---
 name: plan-implementation
-description: Implement explicitly selected repository plans while preserving plan boundaries, auditing completion before marking plans complete, recording implementation decisions and results, and stopping cleanly when replanning is required.
+description: Implement explicitly selected repository plans while preserving plan boundaries, auditing completion before marking plans complete, recording implementation decisions and results, and routing invalidated plans through replanning.
 ---
 
 # Plan Implementation
