@@ -82,7 +82,8 @@ Historical plans, problems, and results are context for replanning rather than c
 
 If the work unit still represents the same responsibility, preserve the superseded `plan.md`, `problem.md`, and any stopped-attempt `result.md` as planning history.
 Create the new current `plan.md`, link it directly to the immediately preceding plan, and return the work unit to `planned` in the same change.
-Use repository conventions for historical placement; otherwise keep superseded planning records under a `history/` location within the work unit.
+Use repository conventions for historical placement; otherwise keep each superseded planning bundle in its own semantic subdirectory under `history/` within the work unit.
+When archiving a plan that already links to an earlier predecessor, keep that link valid after the move so the history chain remains traversable.
 Keep historical plans out of the active index.
 
 If the responsibility moves to a different semantic work unit, create the successor work unit and link its new `plan.md` directly to the superseded plan.
