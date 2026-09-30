@@ -25,7 +25,7 @@ docs/implementation/<work-name>/
 
 Existing repository conventions take precedence when they express the same roles clearly.
 
-Plan state is durable repository state, with these meanings:
+Work-unit state is durable repository state, with these meanings:
 
 - `planned`: the current plan is ready to be implemented when its dependencies are satisfied.
 - `completed`: the current plan has been completed and its result recorded.
