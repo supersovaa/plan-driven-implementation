@@ -40,7 +40,7 @@ A plan should define, in whatever structure fits the repository:
 - references to the relevant requirement and design canon;
 - implementation scope;
 - out-of-scope work;
-- permitted temporary implementation, when relevant;
+- the intended form and required behavior of temporary implementation, when a stage will be completed later;
 - constraints that are already settled and materially affect implementation;
 - what the implementer may decide autonomously;
 - completion criteria.
@@ -48,6 +48,18 @@ A plan should define, in whatever structure fits the repository:
 Do not copy canonical requirements or design into the plan merely to make it self-contained.
 Do not prescribe files, types, functions, algorithms, or implementation order unless those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics normally belong to the implementer.
+
+## Plan deferred stages explicitly
+
+When a use case should flow end to end before one stage reaches its final implementation, decide that staged approach in the plan.
+For each deferred stage, state:
+
+- whether the current work uses an empty/no-op implementation, minimal behavior, or another temporary form;
+- what input/output and observable behavior the temporary form must preserve so the surrounding flow can be implemented and validated;
+- what later work replaces or completes it.
+
+Treat the chosen temporary form as part of the current plan's completion criteria.
+Place the deferred full behavior in separate follow-up work when it is already settled enough to plan.
 
 ## Record dependencies centrally
 
