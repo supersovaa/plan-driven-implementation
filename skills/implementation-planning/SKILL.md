@@ -11,7 +11,7 @@ Do not use it to perform product or architecture design that should be decided s
 ## Establish the repository state first
 
 Before choosing the next work, inspect the latest state of the explicitly relevant base branch.
-Treat that branch as the source of confirmed plan state.
+Treat that branch as the source of confirmed work-unit state.
 
 Use repository conventions when they already define where implementation plans live and how they are indexed.
 Otherwise, prefer semantic work directories under `docs/implementation/`.
@@ -55,7 +55,7 @@ Determine plan dependencies and record them in the nearest common `index.md` for
 The index should make it possible to identify each current work unit, its durable state, and its direct dependencies, so implementable work can be derived from facts rather than stored as a separate `ready` flag.
 Superseded plans and retired work units are planning history rather than active index entries.
 
-Use only these durable plan states unless an existing repository convention provides an equivalent model:
+Use only these durable work-unit states unless an existing repository convention provides an equivalent model:
 
 - `planned`
 - `completed`
