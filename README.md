@@ -23,7 +23,7 @@ docs/implementation/<work-name>/
 └── history/      # superseded planning records, when needed
     └── <superseded-boundary>/
         ├── plan.md
-        ├── result.md
+        ├── result.md     # present only when an execution result exists
         └── problem.md
 ```
 
@@ -33,10 +33,12 @@ Plan state is durable repository state, with these meanings:
 
 - `planned`: the current plan is ready to be implemented when its dependencies are satisfied.
 - `completed`: the current plan has been completed and its result recorded.
-- `replan-required`: the current plan requires fresh planning because its boundary became stale or an implementation attempt stopped at that boundary.
+- `replan-required`: the current plan requires fresh planning because its boundary is no longer valid for continued implementation.
 
 An invalidated unstarted plan remains current while it is `replan-required`; `problem.md` records the assumptions, invalidating change, and boundary impact needed for replanning.
 
 A replacement plan links directly to the immediately preceding plan. Superseded planning bundles use semantic history paths, remain reachable through predecessor links, and stay outside the active index. Replanning may follow that chain to detect repeated invalid assumptions; current canon and the current plan remain authoritative for implementation.
+
+Replanning does not by itself require unfinished implementation changes to be reverted or preserved. Those changes remain working material until a replacement plan and the latest confirmed base state establish what can be reused.
 
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
