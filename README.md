@@ -19,7 +19,7 @@ docs/implementation/<work-name>/
 ├── index.md
 ├── plan.md
 ├── result.md     # created when an execution result exists
-└── problem.md    # created only when replanning details are needed
+└── problem.md    # replanning context for replan-required work
 ```
 
 Existing repository conventions take precedence when they express the same roles clearly.
