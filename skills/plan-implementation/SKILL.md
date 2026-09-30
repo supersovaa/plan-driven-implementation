@@ -107,12 +107,13 @@ Keep this record causal and descriptive so later planning can derive a fresh bou
 Do not require unfinished implementation changes to be reverted solely because replanning is required.
 A surrounding repository or delivery workflow may retain, isolate, or discard those changes.
 Retained unfinished changes are working material rather than a result of the invalidated plan, and they must not be treated as confirmed implementation state.
+Keep retained unfinished changes outside the validation, result, and completion boundary of other plans until a replacement plan accepts them.
 
 Create or update `result.md` only when the attempt produced an execution result worth recording.
 Do not create a result merely to record that replanning was required.
 
 When the same responsibility is later replanned, the planning workflow preserves the superseded planning context as linked history and makes the replacement plan current.
-Before reusing retained unfinished changes, compare them with the replacement plan and the latest confirmed base state; reuse only the parts that remain consistent with both.
+Before reusing retained unfinished changes, compare them with the replacement plan and the confirmed repository state that plan is based on; reuse only the parts that remain consistent with both.
 
 ## Keep documentation navigable
 
