@@ -21,6 +21,7 @@ Do not add another plan merely because it is currently implementable.
 If a selected plan depends on unfinished work that is not selected for the current task, do not implement that plan; independent selected plans may still proceed.
 
 Multiple selected plans may be implemented in one session or one PR.
+When selected plans in one implementation PR need different next actions, split them into separate PRs so each PR can follow one coherent workflow.
 Respect their dependency order and keep each plan as an independent completion boundary.
 A plan completed earlier in the same task may satisfy a dependency of a later selected plan even though it has not yet been merged to the base branch.
 
@@ -104,7 +105,8 @@ Record the causal replanning context in `problem.md`, set the affected plan to `
 
 Before that implementation PR is merged, keep unfinished work for the invalidated plan outside confirmed repository state.
 The surrounding repository workflow may preserve that work separately for possible reuse; replanning does not require discarding it.
-Already completed independent plans may remain in the implementation PR.
+Continue independent unfinished plans in separate implementation PRs before finishing the stopped PR.
+Already completed independent plans may remain in the stopped implementation PR.
 
 The replacement planning PR starts only after the repository workflow has merged the stopped implementation PR.
 Treat a user instruction to replan as sufficient to create that planning PR once the merge has occurred; merging the implementation PR remains a repository-workflow decision.
