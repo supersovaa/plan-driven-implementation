@@ -7,7 +7,7 @@ The skills are intentionally independent. They share a small file-level conventi
 ## Skills
 
 - `implementation-planning`: turn already-settled requirements and design into small implementation plans.
-- `plan-implementation`: implement one explicitly selected plan while preserving its boundary and recording its result.
+- `plan-implementation`: implement one explicitly selected plan in one implementation PR while preserving its boundary and recording its result.
 - `implementation-review`: add plan/result-specific review responsibilities on top of normal code review.
 
 ## Default document convention
