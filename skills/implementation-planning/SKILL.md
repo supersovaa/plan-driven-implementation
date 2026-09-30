@@ -77,7 +77,8 @@ When settled requirements or design changes invalidate an unstarted plan, keep t
 
 Keep this record causal and descriptive, and set the work unit to `replan-required` in the same change.
 
-When replanning, follow any linked predecessor plans only as far as needed to check whether the new plan repeats an earlier invalidated assumption or boundary.
+When replanning, follow linked planning history only as far as needed to check whether the new plan repeats an earlier invalidated assumption or boundary.
+For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when the stopped attempt matters to the new boundary.
 Historical plans, problems, and results are context for replanning rather than current constraints.
 
 If the work unit still represents the same responsibility, preserve the superseded `plan.md`, `problem.md`, and any stopped-attempt `result.md` as planning history.
@@ -90,7 +91,7 @@ If the responsibility moves to a different semantic work unit, create the succes
 Retire the old work unit from the active index while keeping its planning records reachable through that link.
 Re-evaluate dependencies against the successor work unit instead of carrying them over mechanically.
 
-A chain of direct predecessor links provides deeper history when repeated replanning makes it relevant.
+A chain of direct predecessor links provides access to deeper planning history when repeated replanning makes it relevant.
 Normal implementation uses current canon and the current plan; historical planning records are consulted when replanning requires them.
 
 ## Keep documentation navigable
