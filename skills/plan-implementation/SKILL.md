@@ -96,17 +96,23 @@ Do not wait until all selected plans are finished before recording earlier compl
 
 Parent plans are completed by their own integration-level completion criteria and their own result; child completion alone does not automatically complete the parent.
 
-## Stop cleanly when replanning is required
+## Stop using an invalidated plan
 
-If a plan becomes `replan-required`, revert the unfinished changes made for that plan, including implementation, tests, and canon edits attributable to that stopped attempt.
-Do not revert already completed independent plans.
+If a plan becomes `replan-required`, stop implementing against that plan and update its durable state so it is no longer treated as implementable.
 
-Keep `result.md` concise: record that execution stopped and link to `problem.md`.
-Put the detailed replanning context in `problem.md`, including what was attempted, what invalidated the current plan boundary, the resulting impact on that boundary, and that the unfinished changes were reverted.
+Record the replanning context in `problem.md`, including what invalidated the current plan boundary and the resulting impact on that boundary.
+When an implementation attempt already produced facts worth retaining, include the attempted work needed to understand that impact.
 Keep this record causal and descriptive so later planning can derive a fresh boundary from current canon.
-Set the plan state to `replan-required` and commit the coherent stopped state.
 
-When the same responsibility is later replanned, the planning workflow preserves this stopped attempt as linked planning history and makes the replacement plan current.
+Do not require unfinished implementation changes to be reverted solely because replanning is required.
+A surrounding repository or delivery workflow may retain, isolate, or discard those changes.
+Retained unfinished changes are working material rather than a result of the invalidated plan, and they must not be treated as confirmed implementation state.
+
+Create or update `result.md` only when the attempt produced an execution result worth recording.
+Do not create a result merely to record that replanning was required.
+
+When the same responsibility is later replanned, the planning workflow preserves the superseded planning context as linked history and makes the replacement plan current.
+Before reusing retained unfinished changes, compare them with the replacement plan and the latest confirmed base state; reuse only the parts that remain consistent with both.
 
 ## Keep documentation navigable
 
