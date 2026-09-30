@@ -76,9 +76,9 @@ Do not persist transient execution state such as `in-progress` or derived state 
 
 ## Replanning
 
-When a user directs replanning while an implementation PR is in scope, first use the repository workflow to finish and merge that implementation PR as a coherent stopped attempt. The merged state records the affected plan as `replan-required` and carries the causal `problem.md` context while leaving unfinished implementation work outside confirmed repository state. After that merge, create the replacement planning PR from the updated base branch. Treat the replanning instruction as sufficient to invoke this sequence without requiring a separate request to open the planning PR.
+When a user directs replanning while an implementation PR is in scope, finish that implementation PR as a coherent stopped attempt and leave its merge to the repository workflow. The merged state records the affected plan as `replan-required` and carries the causal `problem.md` context while leaving unfinished implementation work outside confirmed repository state. After the repository workflow has merged that implementation PR, create the replacement planning PR from the updated base branch. Treat the replanning instruction as sufficient to create that planning PR without requiring a separate request to open it.
 
-When a user directs a minor plan correction that preserves the current plan boundary, create and merge the planning correction before the implementation PR continues. The implementation PR then updates to the new base and follows the corrected current plan without entering `replan-required`.
+When a user directs a minor plan correction that preserves the current plan boundary, create the planning correction through the repository workflow. After that planning PR has been merged, update the implementation PR to the new base and follow the corrected current plan without entering `replan-required`.
 
 When a plan is `replan-required`, treat its current `plan.md` and `problem.md` as required replanning context.
 Read any `result.md`, relevant current canon, and index context as applicable.
