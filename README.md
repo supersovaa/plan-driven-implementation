@@ -39,10 +39,10 @@ An invalidated unstarted plan remains current while it is `replan-required`; `pr
 
 A replacement plan links directly to the immediately preceding plan. Superseded planning bundles use semantic history paths, remain reachable through predecessor links, and stay outside the active index. Replanning may follow that chain to detect repeated invalid assumptions. Current canon remains authoritative, and the current plan defines the implementation boundary while its state is `planned`.
 
-When replanning is directed from an implementation PR, finish that PR first as a coherent stopped attempt: record the replanning context, set the affected plan to `replan-required`, and keep unfinished implementation work outside the confirmed merged state. Merge that implementation PR before creating the replacement planning PR. The replanning instruction implicitly includes creating the planning PR through the repository workflow after the implementation PR is merged.
+When replanning is directed from an implementation PR, finish that PR first as a coherent stopped attempt: record the replanning context, set the affected plan to `replan-required`, and keep unfinished implementation work outside the confirmed merged state. The replacement planning PR starts only after the repository workflow has merged that implementation PR. Once it is merged, the replanning instruction implicitly includes creating the planning PR through the repository workflow.
 
 Unfinished implementation work may be preserved separately as working material. The planning PR starts from the updated confirmed base state, and any later reuse is checked against the replacement plan and that base state.
 
-A minor plan correction that preserves the current plan boundary uses the opposite order. Merge the planning correction first, then update the implementation PR to the new base and adjust its implementation to the corrected plan.
+A minor plan correction that preserves the current plan boundary uses the opposite order. Create the planning correction through the repository workflow, then update the implementation PR to the new base and adjust its implementation only after that planning PR has been merged.
 
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
