@@ -100,6 +100,8 @@ Parent plans are completed by their own integration-level completion criteria an
 
 If a plan becomes `replan-required`, stop implementing against that plan and update its durable state so it is no longer treated as implementable.
 
+When a user directs replanning while an implementation PR is in scope, keep the replanning work out of that implementation PR. Treat the replanning instruction as sufficient to invoke the repository workflow and create a separate planning PR based on the relevant confirmed base state. Use the implementation PR as context without carrying its unfinished implementation changes into the planning PR.
+
 Record the replanning context in `problem.md`, including what invalidated the current plan boundary and the resulting impact on that boundary.
 When an implementation attempt already produced facts worth retaining, include the attempted work needed to understand that impact.
 Keep this record causal and descriptive so later planning can derive a fresh boundary from current canon.

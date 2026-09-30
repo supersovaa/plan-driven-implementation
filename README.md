@@ -41,4 +41,6 @@ A replacement plan links directly to the immediately preceding plan. Superseded 
 
 Replanning does not by itself require unfinished implementation changes to be reverted or preserved. Those changes remain working material until a replacement plan and the confirmed repository state that plan is based on establish what can be reused.
 
+When a user directs replanning while an implementation PR is in scope, carry out replanning in a separate PR based on the relevant confirmed base state. The replanning instruction implicitly includes creating that PR through the repository workflow; a separate request to open it is unnecessary. Use the implementation PR as context without carrying its unfinished implementation changes into the planning PR.
+
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
