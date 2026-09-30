@@ -11,7 +11,7 @@ Do not use it to perform product or architecture design that should be decided s
 ## Establish the repository state first
 
 Before choosing the next work, inspect the latest state of the explicitly relevant base branch.
-Treat that branch as the source of confirmed work-unit state.
+Treat that branch as the source of confirmed plan state.
 
 Use repository conventions when they already define where implementation plans live and how they are indexed.
 Otherwise, prefer semantic work directories under `docs/implementation/`.
@@ -51,11 +51,10 @@ The plan defines what must be established and the boundary of the work; implemen
 
 ## Record dependencies centrally
 
-Determine plan dependencies and record them in the nearest common `index.md` for the current work units they relate to.
-The index should make it possible to identify each current work unit, its durable state, and its direct dependencies, so implementable work can be derived from facts rather than stored as a separate `ready` flag.
-Superseded plans and retired work units are planning history rather than active index entries.
+Determine plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
+The index should make it possible to identify each current plan, its durable state, and its direct dependencies, so implementable work can be derived from facts rather than stored as a separate `ready` flag.
 
-Use only these durable work-unit states unless an existing repository convention provides an equivalent model:
+Use only these durable plan states unless an existing repository convention provides an equivalent model:
 
 - `planned`
 - `completed`
@@ -65,34 +64,25 @@ Do not persist transient execution state such as `in-progress` or derived state 
 
 ## Replanning
 
-When a work unit is `replan-required`, treat its current `plan.md` and `problem.md` as required replanning context.
+When a plan is `replan-required`, treat its current `plan.md` and `problem.md` as required replanning context.
 Read any `result.md`, relevant current canon, and index context as applicable.
-Treat current canon as authoritative; planning history explains earlier boundaries and failures without overriding current decisions.
 
-When settled requirements or design changes invalidate an unstarted plan, keep the invalidated `plan.md` in place until replanning and record in `problem.md`:
+When settled requirements or design changes invalidate an unstarted plan, keep the invalidated `plan.md` until replanning and record in `problem.md`:
 
 - the earlier assumptions that mattered to the plan boundary;
 - the settled change that invalidated those assumptions;
 - the resulting impact on the plan boundary.
 
-Keep this record causal and descriptive, and set the work unit to `replan-required` in the same change.
+Keep this record causal and descriptive, and set the plan to `replan-required` in the same change.
 
-When replanning, follow linked planning history only as far as needed to check whether the new plan repeats an earlier invalidated assumption or boundary.
-For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when the stopped attempt matters to the new boundary.
-Historical plans, problems, and results are context for replanning rather than current constraints.
+When replanning, follow linked planning history only as far as needed to check for repeated invalid assumptions or boundaries.
+For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when the stopped attempt matters.
+Treat current canon as authoritative and historical records as context rather than current constraints.
 
-If the work unit still represents the same responsibility, preserve the superseded `plan.md`, `problem.md`, and any stopped-attempt `result.md` as planning history.
-Create the new current `plan.md`, link it directly to the immediately preceding plan, and return the work unit to `planned` in the same change.
-Use repository conventions for historical placement; otherwise keep each superseded planning bundle in its own semantic subdirectory under `history/` within the work unit.
-When archiving a plan that already links to an earlier predecessor, keep that link valid after the move so the history chain remains traversable.
-Keep historical plans out of the active index.
-
-If the responsibility moves to a different semantic work unit, create the successor work unit and link its new `plan.md` directly to the superseded plan.
-Retire the old work unit from the active index while keeping its planning records reachable through that link.
-Re-evaluate dependencies against the successor work unit instead of carrying them over mechanically.
-
-A chain of direct predecessor links provides access to deeper planning history when repeated replanning makes it relevant.
-Normal implementation uses current canon and the current plan; historical planning records are consulted when replanning requires them.
+Preserve the superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
+Use repository conventions for historical placement; otherwise keep each superseded planning bundle in a semantic subdirectory under `history/`.
+Keep historical plans out of the active index and keep predecessor links traversable after archival.
+Return the current plan to `planned` in the same change.
 
 ## Keep documentation navigable
 
