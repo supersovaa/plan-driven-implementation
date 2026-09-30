@@ -29,7 +29,8 @@ A plan completed earlier in the same task may satisfy a dependency of a later se
 Adapt implementation details to the current repository as needed.
 A stale implementation assumption does not require replanning if the plan's purpose, scope, out-of-scope work, and completion criteria can still be preserved.
 Once implementation of a selected plan begins, treat that plan as fixed for that attempt.
-Do not rewrite it to accommodate implementation decisions.
+A user-directed minor plan correction may update the current plan without replanning when its boundary remains valid. Make and merge that correction through a separate planning PR first, then update the implementation PR to the new base before adjusting implementation to the corrected plan.
+Do not rewrite the plan inside the implementation PR to accommodate implementation decisions.
 
 Within that boundary, make implementation and design decisions autonomously.
 When a project defines which kinds of canon may be changed, follow that policy.
@@ -98,24 +99,22 @@ Parent plans are completed by their own integration-level completion criteria an
 
 ## Stop using an invalidated plan
 
-If a plan becomes `replan-required`, stop implementing against that plan. Update its durable state in the change that owns replanning so it is no longer treated as implementable.
+If a plan becomes `replan-required`, stop implementing against that plan.
+Record the causal replanning context in `problem.md`, set the affected plan to `replan-required`, and finish the implementation PR as a coherent stopped attempt.
 
-When a user directs replanning while an implementation PR is in scope, keep the replanning work out of that implementation PR. Treat the replanning instruction as sufficient to invoke the repository workflow and create a separate planning PR based on the relevant confirmed base state. Use the implementation PR as context without carrying its unfinished implementation changes into the planning PR.
+Before that implementation PR is merged, keep unfinished work for the invalidated plan outside confirmed repository state.
+The surrounding repository workflow may preserve that work separately for possible reuse; replanning does not require discarding it.
+Already completed independent plans may remain in the implementation PR.
 
-Record the replanning context in `problem.md`, including what invalidated the current plan boundary and the resulting impact on that boundary.
-When an implementation attempt already produced facts worth retaining, include the attempted work needed to understand that impact.
-Keep this record causal and descriptive so later planning can derive a fresh boundary from current canon.
+Merge the stopped implementation PR before creating the replacement planning PR.
+Treat a user instruction to replan as sufficient to invoke the repository workflow for this sequence and to create the planning PR after the implementation PR is merged.
+Base the planning PR on the updated confirmed base state.
 
-Do not require unfinished implementation changes to be reverted solely because replanning is required.
-A surrounding repository or delivery workflow may retain, isolate, or discard those changes.
-Retained unfinished changes are working material rather than a result of the invalidated plan, and they must not be treated as confirmed implementation state.
-Keep retained unfinished changes outside the validation, result, and completion boundary of other plans until a replacement plan accepts them.
-
-Create or update `result.md` only when the attempt produced an execution result worth recording.
+Create or update `result.md` when the attempt produced an execution result.
 Do not create a result merely to record that replanning was required.
 
-When the same responsibility is later replanned, the planning workflow preserves the superseded planning context as linked history and makes the replacement plan current.
-Before reusing retained unfinished changes, compare them with the replacement plan and the confirmed repository state that plan is based on; reuse only the parts that remain consistent with both.
+When the same responsibility is replanned, the planning workflow preserves the superseded planning context as linked history and makes the replacement plan current.
+Before reusing preserved unfinished work, compare it with the replacement plan and the confirmed repository state that plan is based on; reuse only the parts that remain consistent with both.
 
 ## Keep documentation navigable
 
