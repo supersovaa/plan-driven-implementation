@@ -39,8 +39,10 @@ An invalidated unstarted plan remains current while it is `replan-required`; `pr
 
 A replacement plan links directly to the immediately preceding plan. Superseded planning bundles use semantic history paths, remain reachable through predecessor links, and stay outside the active index. Replanning may follow that chain to detect repeated invalid assumptions; current canon and the current plan remain authoritative for implementation.
 
-Replanning does not by itself require unfinished implementation changes to be reverted or preserved. Those changes remain working material until a replacement plan and the confirmed repository state that plan is based on establish what can be reused.
+When replanning is directed from an implementation PR, finish that PR first as a coherent stopped attempt: record the replanning context, set the affected plan to `replan-required`, and keep unfinished implementation work outside the confirmed merged state. Merge that implementation PR before creating the replacement planning PR. The replanning instruction implicitly includes creating the planning PR through the repository workflow after the implementation PR is merged.
 
-When a user directs replanning while an implementation PR is in scope, carry out replanning in a separate PR based on the relevant confirmed base state. The replanning instruction implicitly includes creating that PR through the repository workflow; a separate request to open it is unnecessary. Use the implementation PR as context without carrying its unfinished implementation changes into the planning PR.
+Unfinished implementation work may be preserved separately as working material. The planning PR starts from the updated confirmed base state, and any later reuse is checked against the replacement plan and that base state.
+
+A minor plan correction that preserves the current plan boundary uses the opposite order. Merge the planning correction first, then update the implementation PR to the new base and adjust its implementation to the corrected plan.
 
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
