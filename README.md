@@ -45,6 +45,6 @@ Unfinished implementation work may be preserved separately as working material. 
 
 A minor plan correction that preserves the current plan boundary uses the opposite order. Create the planning correction through the repository workflow, then update the implementation PR to the new base and adjust its implementation only after that planning PR has been merged.
 
-Each implementation PR implements one current plan. Another plan uses a separate implementation task and PR.
+Each implementation PR is scoped to one plan. Another plan uses a separate implementation task and PR.
 
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
