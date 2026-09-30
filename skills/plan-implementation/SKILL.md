@@ -29,7 +29,7 @@ A plan completed earlier in the same task may satisfy a dependency of a later se
 Adapt implementation details to the current repository as needed.
 A stale implementation assumption does not require replanning if the plan's purpose, scope, out-of-scope work, and completion criteria can still be preserved.
 Once implementation of a selected plan begins, treat that plan as fixed for that attempt.
-A user-directed minor plan correction may update the current plan without replanning when its boundary remains valid. Make and merge that correction through a separate planning PR first, then update the implementation PR to the new base before adjusting implementation to the corrected plan.
+A user-directed minor plan correction may update the current plan without replanning when its boundary remains valid. Make that correction through a separate planning PR first. After the repository workflow has merged that planning PR, update the implementation PR to the new base before adjusting implementation to the corrected plan.
 Do not rewrite the plan inside the implementation PR to accommodate implementation decisions.
 
 Within that boundary, make implementation and design decisions autonomously.
@@ -106,8 +106,8 @@ Before that implementation PR is merged, keep unfinished work for the invalidate
 The surrounding repository workflow may preserve that work separately for possible reuse; replanning does not require discarding it.
 Already completed independent plans may remain in the implementation PR.
 
-Merge the stopped implementation PR before creating the replacement planning PR.
-Treat a user instruction to replan as sufficient to invoke the repository workflow for this sequence and to create the planning PR after the implementation PR is merged.
+The replacement planning PR starts only after the repository workflow has merged the stopped implementation PR.
+Treat a user instruction to replan as sufficient to create that planning PR once the merge has occurred; merging the implementation PR remains a repository-workflow decision.
 Base the planning PR on the updated confirmed base state.
 
 Create or update `result.md` when the attempt produced an execution result.
