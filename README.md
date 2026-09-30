@@ -7,7 +7,7 @@ The skills are intentionally independent. They share a small file-level conventi
 ## Skills
 
 - `implementation-planning`: turn already-settled requirements and design into small implementation plans.
-- `plan-implementation`: implement explicitly selected plans while preserving plan boundaries and recording results.
+- `plan-implementation`: implement one explicitly selected plan while preserving its boundary and recording its result.
 - `implementation-review`: add plan/result-specific review responsibilities on top of normal code review.
 
 ## Default document convention
@@ -45,6 +45,6 @@ Unfinished implementation work may be preserved separately as working material. 
 
 A minor plan correction that preserves the current plan boundary uses the opposite order. Create the planning correction through the repository workflow, then update the implementation PR to the new base and adjust its implementation only after that planning PR has been merged.
 
-When plans in one implementation PR need different next actions, split them into separate PRs so each PR can follow one coherent workflow.
+Each implementation PR implements one current plan. Another plan uses a separate implementation task and PR.
 
 Derived transient states such as “ready”, “blocked”, or “in progress” do not need to be persisted.
