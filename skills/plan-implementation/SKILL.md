@@ -1,11 +1,11 @@
 ---
 name: plan-implementation
-description: Implement one explicitly selected repository plan while preserving its boundary, auditing completion before marking it complete, recording implementation decisions and results, and routing an invalidated plan through replanning.
+description: Implement one explicitly selected repository plan in one implementation PR while preserving its boundary, auditing completion before marking it complete, recording implementation decisions and results, and routing an invalidated plan through replanning.
 ---
 
 # Plan Implementation
 
-Use this skill to implement one explicitly selected implementation plan.
+Use this skill for one implementation PR that implements one explicitly selected implementation plan.
 The plan is a repository-persistent implementation contract, not an informal task description.
 
 ## Read the planning material before implementation
@@ -17,7 +17,7 @@ Implement the selected plan only when its durable state is `planned` and its dep
 Route a `replan-required` plan through implementation planning before implementation; a completed plan remains a completion record.
 
 Use one implementation task and one implementation PR for the selected plan.
-Handle another plan as a separate implementation task and PR.
+Handle another plan as a separate implementation task and implementation PR.
 
 ## Preserve the plan boundary, not an implementation recipe
 
@@ -113,5 +113,5 @@ Before reusing preserved unfinished work, compare it with the replacement plan a
 When this skill adds, deletes, moves, or renames planning/result documents, update the relevant `index.md` in the same change.
 Do not leave a newly created `result.md` or `problem.md` unreachable from the repository's documentation structure when that structure uses indexes.
 
-This skill defines implementation semantics only.
-If the task also requires commit delivery, push, or pull-request creation beyond the plan-completion commits described here, hand off to the appropriate repository workflow rather than embedding a specific hosting workflow in this skill.
+This skill defines implementation semantics within an implementation PR.
+Commit delivery, push, merge, and other repository-hosting operations belong to the appropriate repository workflow.
