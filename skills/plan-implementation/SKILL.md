@@ -12,6 +12,7 @@ The plans are repository-persistent implementation contracts, not informal task 
 
 Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state and dependencies, referenced requirement and design canon, and relevant repository-level implementation rules.
 Treat the explicitly relevant base branch as the source of confirmed plan state.
+Use the current plan and current canon for normal implementation; linked planning history is replanning context.
 
 Implement only plans explicitly selected for the current task.
 Do not add another plan merely because it is currently implementable.
@@ -103,7 +104,7 @@ Put the detailed replanning context in `problem.md`, including what was attempte
 Keep this record causal and descriptive so later planning can derive a fresh boundary from current canon.
 Set the plan state to `replan-required` and commit the coherent stopped state.
 
-When the same work unit is later replanned and completed, obsolete stopped-attempt documents are removed by the planning workflow; Git history preserves them.
+When the same responsibility is later replanned, the planning workflow preserves this stopped attempt as linked planning history and makes the replacement plan current.
 
 ## Keep documentation navigable
 
