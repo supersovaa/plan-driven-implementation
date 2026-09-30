@@ -64,9 +64,21 @@ Do not persist transient execution state such as `in-progress` or derived state 
 
 ## Replanning
 
-When a plan is `replan-required`, treat its `problem.md` as required input to replanning together with the current plan, result, relevant canon, and index context.
+When a work unit is `replan-required`, treat its `problem.md` as required replanning context.
+Read it together with any remaining `plan.md` or `result.md`, the relevant current canon, and index context.
+Treat current canon as authoritative; `problem.md` explains why earlier planning stopped or became stale and provides context for a fresh planning decision.
 
-If the work unit still represents the same responsibility, replace the current `plan.md` rather than creating versioned plan files.
+When settled requirements or design changes invalidate an unstarted plan, remove the obsolete `plan.md` and record the context needed to avoid recreating the same stale plan in `problem.md`:
+
+- the earlier assumptions that mattered to the plan boundary;
+- the settled change that invalidated those assumptions;
+- the resulting impact on the plan boundary.
+
+Keep this record causal and descriptive.
+Set the work unit to `replan-required` in the same change.
+Git history preserves the removed plan.
+
+If the work unit still represents the same responsibility, create or replace `plan.md` rather than creating versioned plan files.
 Delete obsolete `result.md` and `problem.md`, and return the state to `planned` in the same change.
 Git history is the history of superseded plans and stopped attempts.
 
