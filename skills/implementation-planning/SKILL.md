@@ -76,10 +76,10 @@ When settled requirements or design changes invalidate an unstarted plan, keep t
 Keep this record causal and descriptive, and set the plan to `replan-required` in the same change.
 
 When replanning, follow linked planning history only as far as needed to check for repeated invalid assumptions or boundaries.
-For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when the stopped attempt matters.
+For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when one exists and its execution result matters to the new boundary.
 Treat current canon as authoritative and historical records as context rather than current constraints.
 
-Preserve the superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
+Preserve the superseded planning records that exist as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
 Use repository conventions for historical placement; otherwise keep each superseded planning bundle in a semantic subdirectory under `history/`.
 Keep historical plans out of the active index and keep predecessor links traversable after archival.
 Return the current plan to `planned` in the same change.
