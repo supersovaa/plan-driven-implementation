@@ -52,7 +52,7 @@ The plan defines what must be established and the boundary of the work; implemen
 ## Record dependencies centrally
 
 Determine plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
-The index should make it possible to identify each plan, its durable state, and its direct dependencies, so implementable work can be derived from facts rather than stored as a separate `ready` flag.
+The index should make it possible to identify each current plan, its durable state, and its direct dependencies, so implementable work can be derived from facts rather than stored as a separate `ready` flag.
 
 Use only these durable plan states unless an existing repository convention provides an equivalent model:
 
@@ -64,13 +64,25 @@ Do not persist transient execution state such as `in-progress` or derived state 
 
 ## Replanning
 
-When a plan is `replan-required`, treat its `problem.md` as required input to replanning together with the current plan, result, relevant canon, and index context.
+When a plan is `replan-required`, treat its current `plan.md` and `problem.md` as required replanning context.
+Read any `result.md`, relevant current canon, and index context as applicable.
 
-If the work unit still represents the same responsibility, replace the current `plan.md` rather than creating versioned plan files.
-Delete obsolete `result.md` and `problem.md`, and return the state to `planned` in the same change.
-Git history is the history of superseded plans and stopped attempts.
+When settled requirements or design changes invalidate an unstarted plan, keep the invalidated `plan.md` until replanning and record in `problem.md`:
 
-If the meaning of the work unit itself has changed, create a new semantic work unit instead of disguising a different responsibility as a revision of the old one.
+- the earlier assumptions that mattered to the plan boundary;
+- the settled change that invalidated those assumptions;
+- the resulting impact on the plan boundary.
+
+Keep this record causal and descriptive, and set the plan to `replan-required` in the same change.
+
+When replanning, follow linked planning history only as far as needed to check for repeated invalid assumptions or boundaries.
+For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when the stopped attempt matters.
+Treat current canon as authoritative and historical records as context rather than current constraints.
+
+Preserve the superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
+Use repository conventions for historical placement; otherwise keep each superseded planning bundle in a semantic subdirectory under `history/`.
+Keep historical plans out of the active index and keep predecessor links traversable after archival.
+Return the current plan to `planned` in the same change.
 
 ## Keep documentation navigable
 
