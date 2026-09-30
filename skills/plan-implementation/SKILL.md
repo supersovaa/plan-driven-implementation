@@ -11,10 +11,10 @@ The plans are repository-persistent implementation contracts, not informal task 
 ## Read the planning material before implementation
 
 Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state and dependencies, referenced requirement and design canon, and relevant repository-level implementation rules.
-Treat the explicitly relevant base branch as the source of confirmed work-unit state.
+Treat the explicitly relevant base branch as the source of confirmed plan state.
 Use the current plan and current canon for normal implementation; linked planning history is replanning context.
-Treat `planned` as the implementation-ready work-unit state.
-Route `replan-required` work units through implementation planning before implementation; completed work units remain completion records.
+Implement only selected plans whose durable state is `planned`.
+Route `replan-required` plans through implementation planning before implementation; completed plans remain completion records.
 
 Implement only plans explicitly selected for the current task.
 Do not add another plan merely because it is currently implementable.
@@ -88,7 +88,7 @@ For each selected plan, once its completion audit passes:
 - validate that plan;
 - finalize its `result.md`;
 - update relevant canon and indexes so the repository is semantically consistent;
-- set the work unit's durable state to `completed`;
+- set its durable state to `completed`;
 - create a commit that contains the plan's coherent completed state.
 
 A plan may use multiple commits, but its completion commit must include the result, completed state, and required documentation synchronization.
@@ -104,7 +104,7 @@ Do not revert already completed independent plans.
 Keep `result.md` concise: record that execution stopped and link to `problem.md`.
 Put the detailed replanning context in `problem.md`, including what was attempted, what invalidated the current plan boundary, the resulting impact on that boundary, and that the unfinished changes were reverted.
 Keep this record causal and descriptive so later planning can derive a fresh boundary from current canon.
-Set the work unit state to `replan-required` and commit the coherent stopped state.
+Set the plan state to `replan-required` and commit the coherent stopped state.
 
 When the same responsibility is later replanned, the planning workflow preserves this stopped attempt as linked planning history and makes the replacement plan current.
 
