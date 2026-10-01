@@ -7,7 +7,7 @@ The skills are intentionally independent. They share a small file-level conventi
 ## Skills
 
 - `implementation-planning`: turn already-settled requirements and design into small implementation plans.
-- `plan-implementation`: implement one explicitly selected plan in one implementation PR while preserving its boundary and recording a self-contained result.
+- `plan-implementation`: implement one explicitly selected plan in one implementation PR while preserving its boundary and recording its result.
 - `implementation-review`: add plan/result-specific review responsibilities on top of normal code review.
 
 ## Default document convention
@@ -18,7 +18,7 @@ When a repository has no established equivalent convention, use semantic work di
 docs/implementation/<work-name>/
 ├── index.md
 ├── plan.md
-├── result.md     # final execution record when an execution result exists
+├── result.md     # created when an execution result exists
 ├── problem.md    # replanning context for replan-required work
 └── history/      # superseded planning records, when needed
     └── <superseded-boundary>/
@@ -45,7 +45,7 @@ Unfinished implementation work may be preserved separately as working material. 
 
 Once implementation starts, its plan stays fixed for that attempt. Implementation-time discoveries that fit within the existing boundary are resolved in implementation and recorded as final state in `result.md`; a boundary change uses `replan-required`.
 
-For retrospective reading, `result.md` is the primary record of what the attempt established, whether it completed, and what remains. The plan remains planning history and implementation-audit input.
+`result.md` records what the implementation established directly rather than only as deviations from `plan.md`; `plan.md`, `problem.md`, and canon retain their own responsibilities.
 
 Each implementation PR is scoped to one plan. Another plan uses a separate implementation task and PR.
 
