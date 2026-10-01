@@ -29,7 +29,7 @@ Do not require the implementer to have stopped merely because an important decis
 Identify:
 
 - violations of the plan boundary;
-- result records that do not match the implementation;
+- result records that do not match the implementation or do not state its final outcome sufficiently;
 - canonical documentation that should be synchronized;
 - provisional or newly discovered important decisions requiring user judgment;
 - concrete corrections needed before the implementation can be accepted.
