@@ -13,6 +13,7 @@ Do not turn this skill into a general code-review methodology.
 Check whether the implementation satisfies the current plan's purpose, scope, out-of-scope boundaries, constraints, and completion criteria without treating literal adherence to an implementation recipe as the goal.
 
 Check that the recorded result corresponds to what the implementation actually did and that relevant canonical documentation remains semantically consistent with the implementation.
+Check that `result.md` states the final implementation and attempt outcome directly enough to serve as the primary retrospective record without reconstructing them from `plan.md`.
 
 ## Surface decisions that need human judgment
 
