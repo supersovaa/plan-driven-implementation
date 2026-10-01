@@ -17,7 +17,7 @@ Treat missing behavior or evidence required by the current plan contract as acce
 
 For a `replan-required` plan, review the attempt as an intentional stopped state.
 Confirm that implementation stopped at the invalidated boundary, `problem.md` records the causal context and boundary impact needed for replanning, and any `result.md` matches what the attempt actually established.
-Judge the stopped state against those responsibilities rather than the superseded completion criteria.
+Judge the stopped state against those responsibilities rather than the invalidated completion criteria.
 
 For a `planned` plan, review the current implementation against the active plan boundary and report what remains before it can be completed.
 
@@ -30,7 +30,8 @@ Use subsequent plans or explicit deferred-work records as needed to confirm the 
 Keep plan-relative robustness, observability, or future-stage improvements beyond the current contract as follow-up feedback.
 Apply normal code-review acceptance criteria independently.
 
-Check that recorded results correspond to what the implementation actually did and that relevant canonical documentation remains semantically consistent with the implementation.
+Check that recorded results correspond to what the implementation actually did and state the implementation outcome directly rather than only as deviations from `plan.md`.
+Check that relevant canonical documentation remains semantically consistent with the implementation.
 
 ## Surface decisions that need human judgment
 
@@ -47,7 +48,7 @@ Identify:
 
 - violations of the plan boundary;
 - state-specific completion or stopped-attempt problems;
-- result records that do not match the implementation;
+- result records that do not match the implementation or describe it only as plan deviations;
 - canonical documentation that should be synchronized;
 - provisional or newly discovered important decisions requiring user judgment;
 - concrete corrections needed before the implementation can be accepted.
