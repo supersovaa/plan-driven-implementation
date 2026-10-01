@@ -12,9 +12,7 @@ Treat plan selection, plan validity, and satisfied planning preconditions as est
 
 Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state, referenced requirement and design canon, and relevant repository-level implementation rules.
 Treat the current plan and current canon as authoritative for this attempt.
-
-Use one implementation task and one implementation PR for the selected plan.
-Handle another plan as a separate implementation task and implementation PR.
+Keep the selected plan as the sole implementation boundary for the attempt.
 
 ## Preserve the plan boundary
 
@@ -36,7 +34,6 @@ Its structure is repository-defined, but it should capture the implementation fa
 - what was actually implemented;
 - non-trivial implementation decisions, with a short reason;
 - provisional decisions that may require later user approval;
-- meaningful within-boundary deviations from the planned approach;
 - the actual form of permitted temporary implementation;
 - validation performed and its outcome;
 - incomplete or follow-up work.
