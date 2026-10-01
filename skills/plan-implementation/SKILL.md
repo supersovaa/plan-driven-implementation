@@ -70,7 +70,7 @@ After the completion audit passes:
 - finalize its `result.md`;
 - update relevant canon and indexes so the repository is semantically consistent;
 - set its durable state to `completed`;
-- create a coherent completion commit containing the result, completed state, and required documentation synchronization.
+- leave a coherent completed state containing the result, completed state, and required documentation synchronization.
 
 Parent plans complete against their own integration-level completion criteria.
 
