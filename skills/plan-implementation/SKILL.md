@@ -6,7 +6,7 @@ description: Execute one explicitly selected implementation plan while preservin
 # Plan Implementation
 
 Use this skill to execute one explicitly selected implementation plan.
-Treat plan selection, plan validity, and satisfied planning preconditions as established inputs from the preceding planning workflow.
+Begin from the selected plan and established execution readiness.
 
 ## Read the implementation contract
 
