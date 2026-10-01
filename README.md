@@ -44,5 +44,4 @@ Plan state is durable repository state, with these meanings:
 A replacement plan links directly to the immediately preceding plan, while superseded planning bundles remain reachable as history.
 Current canon remains authoritative.
 
-Each implementation task and implementation PR covers one selected plan.
 Transient states such as readiness, blocking, or active execution remain runtime concerns.
