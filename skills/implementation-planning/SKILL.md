@@ -78,7 +78,9 @@ Do not persist transient execution state such as `in-progress` or derived state 
 
 When a user directs replanning while an implementation PR is in scope, finish that implementation PR as a coherent stopped attempt and leave its merge to the repository workflow. The merged state records the affected plan as `replan-required` and carries the causal `problem.md` context while leaving unfinished implementation work outside confirmed repository state. After the repository workflow has merged that implementation PR, create the replacement planning PR from the updated base branch. Treat the replanning instruction as sufficient to create that planning PR without requiring a separate request to open it.
 
-When a user directs a minor plan correction that preserves the current plan boundary, create the planning correction through the repository workflow. After that planning PR has been merged, update the implementation PR to the new base and follow the corrected current plan without entering `replan-required`.
+Once implementation of a plan has begun, keep that plan fixed for the attempt.
+Implementation-time adjustments within its boundary belong to implementation and its result.
+Use replanning when the boundary changes.
 
 When a plan is `replan-required`, treat its current `plan.md` and `problem.md` as required replanning context.
 Read any `result.md`, relevant current canon, and index context as applicable.
