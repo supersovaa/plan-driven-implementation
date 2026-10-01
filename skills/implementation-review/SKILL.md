@@ -12,6 +12,14 @@ Do not turn this skill into a general code-review methodology.
 
 Check whether the implementation satisfies the current plan's purpose, scope, out-of-scope boundaries, constraints, and completion criteria without treating literal adherence to an implementation recipe as the goal.
 
+Judge acceptance at the current plan boundary.
+For staged work, keep behavior explicitly assigned to later work with that later stage, including cases where the current stage prepares data, hooks, or temporary behavior for it.
+Use subsequent plans or explicit deferred-work records as needed to confirm the boundary and evaluate validation against the behavior owned by the current stage.
+
+For findings about plan completion, treat missing behavior or evidence as acceptance-blocking when the current plan contract requires it.
+Keep plan-relative robustness, observability, or future-stage improvements beyond that contract as follow-up feedback.
+Apply normal code-review acceptance criteria independently.
+
 Check that the recorded result corresponds to what the implementation actually did and that relevant canonical documentation remains semantically consistent with the implementation.
 
 ## Surface decisions that need human judgment
