@@ -1,11 +1,11 @@
 ---
 name: implementation-review
-description: Review an implementation that follows a plan/result workflow, focusing on plan-boundary fidelity, recorded results, canonical consistency, and provisional decisions needing user judgment.
+description: Review an implementation attempt in a plan/result workflow according to its durable plan state, focusing on boundary fidelity, recorded outcomes, canonical consistency, and provisional decisions needing user judgment.
 ---
 
 # Implementation Review
 
-Use this skill as an addition to normal code review when the repository uses `plan.md` / `result.md` implementation records.
+Use this skill as an addition to normal code review for an implementation attempt governed by a durable plan state and plan/result records.
 Keep general code-review methodology with the normal review workflow.
 
 ## Review according to plan state
