@@ -17,6 +17,14 @@ Use repository conventions when they already define where implementation plans l
 Otherwise, prefer semantic work directories under `docs/implementation/`.
 Prefer semantic identity over dates or sequence numbers for work units.
 
+## Consider prerequisite refactoring
+
+Before defining a new implementation boundary, inspect how the planned behavior fits responsibilities already present in the current repository state.
+Use settled requirements, design, and repository state to determine whether the current structure supports a coherent, independently completable boundary and keeps behavior shared with existing paths under one coherent responsibility.
+When it does, plan the current change against the current structure and treat related reorganization as optional improvement.
+When establishing that boundary requires reorganizing existing responsibilities, represent the settled refactoring as prerequisite work and define the dependent implementation boundary from the resulting structure.
+When prerequisite refactoring depends on a new design decision, return that decision to its owning workflow before planning the dependent implementation.
+
 ## Plan small implementation boundaries
 
 Prefer work units that:
