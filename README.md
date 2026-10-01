@@ -7,7 +7,7 @@ The skills are intentionally independent. They share a small file-level conventi
 ## Skills
 
 - `implementation-planning`: turn already-settled requirements and design into small implementation plans.
-- `plan-implementation`: implement one explicitly selected plan in one implementation PR while preserving its boundary and recording its result.
+- `plan-implementation`: implement one explicitly selected plan in one implementation PR while preserving its boundary and recording a self-contained result.
 - `implementation-review`: add plan/result-specific review responsibilities on top of normal code review.
 
 ## Default document convention
@@ -18,7 +18,7 @@ When a repository has no established equivalent convention, use semantic work di
 docs/implementation/<work-name>/
 ├── index.md
 ├── plan.md
-├── result.md     # created when an execution result exists
+├── result.md     # final execution record when an execution result exists
 ├── problem.md    # replanning context for replan-required work
 └── history/      # superseded planning records, when needed
     └── <superseded-boundary>/
@@ -43,7 +43,9 @@ When replanning is directed from an implementation PR, finish that PR first as a
 
 Unfinished implementation work may be preserved separately as working material. The planning PR starts from the updated confirmed base state, and any later reuse is checked against the replacement plan and that base state.
 
-A minor plan correction that preserves the current plan boundary uses the opposite order. Create the planning correction through the repository workflow, then update the implementation PR to the new base and adjust its implementation only after that planning PR has been merged.
+Once implementation starts, its plan stays fixed for that attempt. Implementation-time discoveries that fit within the existing boundary are resolved in implementation and recorded as final state in `result.md`; a boundary change uses `replan-required`.
+
+For retrospective reading, `result.md` is the primary record of what the attempt established, whether it completed, and what remains. The plan remains planning history and implementation-audit input.
 
 Each implementation PR is scoped to one plan. Another plan uses a separate implementation task and PR.
 
