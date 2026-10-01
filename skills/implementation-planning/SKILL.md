@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Turn already-settled requirements and design into small, repository-persistent implementation plans with explicit boundaries, dependencies, and durable state.
+description: Create or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, and durable state.
 ---
 
 # Implementation Planning
