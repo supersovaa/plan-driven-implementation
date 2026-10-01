@@ -21,6 +21,7 @@ Keep plan-relative robustness, observability, or future-stage improvements beyon
 Apply normal code-review acceptance criteria independently.
 
 Check that the recorded result corresponds to what the implementation actually did and that relevant canonical documentation remains semantically consistent with the implementation.
+Check that `result.md` records the implementation outcome directly rather than only as deviations from `plan.md`.
 
 ## Surface decisions that need human judgment
 
@@ -36,7 +37,7 @@ Do not require the implementer to have stopped merely because an important decis
 Identify:
 
 - violations of the plan boundary;
-- result records that do not match the implementation;
+- result records that do not match the implementation or describe it only as plan deviations;
 - canonical documentation that should be synchronized;
 - provisional or newly discovered important decisions requiring user judgment;
 - concrete corrections needed before the implementation can be accepted.

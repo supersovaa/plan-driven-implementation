@@ -1,6 +1,6 @@
 ---
 name: plan-implementation
-description: Implement one explicitly selected repository plan in one implementation PR while preserving its boundary, auditing completion before marking it complete, recording implementation decisions and results, and routing an invalidated plan through replanning.
+description: Implement one explicitly selected repository plan in one implementation PR while preserving its boundary, auditing completion before marking it complete, recording implementation results, and routing an invalidated plan through replanning.
 ---
 
 # Plan Implementation
@@ -23,9 +23,8 @@ Handle another plan as a separate implementation task and implementation PR.
 
 Adapt implementation details to the current repository as needed.
 A stale implementation assumption does not require replanning if the plan's purpose, scope, out-of-scope work, and completion criteria can still be preserved.
-Once implementation of a selected plan begins, treat that plan as fixed for that attempt.
-A user-directed minor plan correction may update the current plan without replanning when its boundary remains valid. Make that correction through a separate planning PR first. After the repository workflow has merged that planning PR, update the implementation PR to the new base before adjusting implementation to the corrected plan.
-Do not rewrite the plan inside the implementation PR to accommodate implementation decisions.
+Once implementation of a selected plan begins, keep its active `plan.md` fixed for that attempt.
+Resolve implementation-time discoveries by adapting the implementation within the existing plan boundary and recording the final outcome in `result.md`.
 
 Within that boundary, make implementation and design decisions autonomously.
 When a project defines which kinds of canon may be changed, follow that policy.
@@ -37,17 +36,19 @@ Other plans keep their current state unless their own boundaries are known to re
 ## Record what actually happened
 
 Create or update `result.md` when an execution result exists.
+Record the resulting implementation directly rather than expressing it only as deviations from `plan.md`.
 Its structure is repository-defined, but it should capture the implementation facts that matter, including as applicable:
 
 - what was actually implemented;
+- whether the attempt completed the planned work, or what remains;
 - non-trivial implementation decisions, with a short reason;
 - provisional decisions that may require later user approval;
-- meaningful deviations from the plan that remain within its boundary;
+- implementation-time discoveries that materially shaped the final implementation;
 - the actual form of permitted temporary implementation;
 - validation performed and its outcome;
-- incomplete or follow-up work.
+- follow-up work.
 
-Do not restate canonical requirements or design in `result.md`.
+Reference canonical requirements or design instead of restating them in `result.md`.
 Permanent decisions that matter beyond this work unit belong in the appropriate canon; record in the result that the decision was made and what canon was updated.
 
 A provisional decision is a decision made so implementation can proceed even though it may be important enough for later user approval.

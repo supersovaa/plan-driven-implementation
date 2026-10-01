@@ -43,7 +43,9 @@ When replanning is directed from an implementation PR, finish that PR first as a
 
 Unfinished implementation work may be preserved separately as working material. The planning PR starts from the updated confirmed base state, and any later reuse is checked against the replacement plan and that base state.
 
-A minor plan correction that preserves the current plan boundary uses the opposite order. Create the planning correction through the repository workflow, then update the implementation PR to the new base and adjust its implementation only after that planning PR has been merged.
+Once implementation starts, its plan stays fixed for that attempt. Implementation-time discoveries that fit within the existing boundary are resolved in implementation and recorded as final state in `result.md`; a boundary change uses `replan-required`.
+
+`result.md` records what the implementation established directly rather than only as deviations from `plan.md`; `plan.md`, `problem.md`, and canon retain their own responsibilities.
 
 Each implementation PR is scoped to one plan. Another plan uses a separate implementation task and PR.
 
