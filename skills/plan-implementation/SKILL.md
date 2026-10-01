@@ -1,38 +1,32 @@
 ---
 name: plan-implementation
-description: Implement one explicitly selected repository plan in one implementation PR while preserving its boundary, auditing completion before marking it complete, recording implementation decisions and results, and routing an invalidated plan through replanning.
+description: Execute one explicitly selected implementation plan while preserving its boundary, recording the actual result, auditing completion, and stopping cleanly when the boundary requires replanning.
 ---
 
 # Plan Implementation
 
-Use this skill for one implementation PR that implements one explicitly selected implementation plan.
-The plan is a repository-persistent implementation contract, not an informal task description.
+Use this skill to execute one explicitly selected implementation plan.
+Treat plan selection, plan validity, and satisfied planning preconditions as established inputs from the preceding planning workflow.
 
-## Read the planning material before implementation
+## Read the implementation contract
 
-Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state and dependencies, referenced requirement and design canon, and relevant repository-level implementation rules.
-Treat the explicitly relevant base branch as the source of confirmed plan state.
-Use the current plan and current canon for normal implementation; linked planning history is replanning context.
-Implement the selected plan only when its durable state is `planned` and its dependencies are satisfied in confirmed repository state.
-Route a `replan-required` plan through implementation planning before implementation; a completed plan remains a completion record.
+Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state, referenced requirement and design canon, and relevant repository-level implementation rules.
+Treat the current plan and current canon as authoritative for this attempt.
 
 Use one implementation task and one implementation PR for the selected plan.
 Handle another plan as a separate implementation task and implementation PR.
 
-## Preserve the plan boundary, not an implementation recipe
+## Preserve the plan boundary
 
 Adapt implementation details to the current repository as needed.
-A stale implementation assumption does not require replanning if the plan's purpose, scope, out-of-scope work, and completion criteria can still be preserved.
-Once implementation of a selected plan begins, treat that plan as fixed for that attempt.
-A user-directed minor plan correction may update the current plan without replanning when its boundary remains valid. Make that correction through a separate planning PR first. After the repository workflow has merged that planning PR, update the implementation PR to the new base before adjusting implementation to the corrected plan.
-Do not rewrite the plan inside the implementation PR to accommodate implementation decisions.
+Treat the selected plan as fixed for the attempt.
 
-Within that boundary, make implementation and design decisions autonomously.
+Within its boundary, make implementation and design decisions autonomously.
 When a project defines which kinds of canon may be changed, follow that policy.
-If no project policy exists, use a conservative default: design canon may be updated within the plan boundary, while requirements, rules, and external-specification canon are not changed by default.
+If no project policy exists, use a conservative default: design canon may be updated within the plan boundary, while requirements, rules, and external-specification canon stay with their owning workflow.
 
-If completing the work requires changing the plan's purpose, scope, out-of-scope work, or completion criteria, stop that plan as `replan-required` instead of silently redefining it.
-Other plans keep their current state unless their own boundaries are known to require replanning.
+Implementation-time discoveries that fit the existing boundary belong in the implementation and its result.
+When completing the work requires changing the plan's purpose, scope, out-of-scope work, or completion criteria, move the plan to `replan-required`.
 
 ## Record what actually happened
 
@@ -42,21 +36,19 @@ Its structure is repository-defined, but it should capture the implementation fa
 - what was actually implemented;
 - non-trivial implementation decisions, with a short reason;
 - provisional decisions that may require later user approval;
-- meaningful deviations from the plan that remain within its boundary;
+- meaningful within-boundary deviations from the planned approach;
 - the actual form of permitted temporary implementation;
 - validation performed and its outcome;
 - incomplete or follow-up work.
 
-Do not restate canonical requirements or design in `result.md`.
-Permanent decisions that matter beyond this work unit belong in the appropriate canon; record in the result that the decision was made and what canon was updated.
+Reference canonical requirements or design instead of restating them in `result.md`.
+Permanent decisions that matter beyond this work unit belong in the appropriate canon; record in the result what canon was updated.
 
-A provisional decision is a decision made so implementation can proceed even though it may be important enough for later user approval.
 Keep provisional decisions distinguishable from ordinary implementation decisions in `result.md`.
-Do not model approval status inside `result.md`; record that the decision was provisional at implementation time.
 
-## Audit completion before marking a plan completed
+## Audit completion
 
-Immediately before completing a selected plan, reread its `plan.md` and audit these items individually:
+Immediately before completing the selected plan, reread its `plan.md` and audit these items individually:
 
 - implementation scope;
 - implementation constraints that impose requirements on the implementation result;
@@ -64,54 +56,39 @@ Immediately before completing a selected plan, reread its `plan.md` and audit th
 
 For every applicable item, confirm concrete implementation evidence and validation evidence.
 
-For behavioral or integration responsibilities, including connecting, retaining, exposing, resuming, advancing automatically, or applying behavior to existing processing, confirm that the required path actually works.
+For behavioral or integration responsibilities, confirm the required path actually works.
 Types, APIs, helpers, and passing test suites may support that evidence; behavioral and integration responsibilities require evidence of the resulting behavior.
 
-Use subsequent plans to confirm responsibility boundaries.
-Responsibilities assigned to the current plan remain in the current plan, while usage or integration first assigned to a later plan remains in that later plan.
+Use subsequent plans only to confirm responsibility boundaries.
+Keep responsibilities assigned to the current plan in the current plan, and behavior assigned to later plans with those later plans.
 
-Mark the plan `completed` only when every audited item has sufficient implementation and validation evidence.
+When every audited item has sufficient evidence, set the plan to `completed`.
+When an audited item remains unmet, continue within the current boundary, leave the attempt incomplete, or use `replan-required` when the boundary must change.
 
-When the audit finds an unmet item, continue implementation within the current boundary, use `replan-required` when the boundary must change, or end the work with the plan incomplete and record the remaining work in `result.md`.
+## Finalize a completed plan
 
-`result.md` may state that no incomplete work remains after the audit passes.
+After the completion audit passes:
 
-## Complete the plan
-
-Once its completion audit passes:
-
-- validate that plan;
+- validate the plan;
 - finalize its `result.md`;
 - update relevant canon and indexes so the repository is semantically consistent;
 - set its durable state to `completed`;
-- create a commit that contains the plan's coherent completed state.
+- create a coherent completion commit containing the result, completed state, and required documentation synchronization.
 
-A plan may use multiple commits, but its completion commit must include the result, completed state, and required documentation synchronization.
+Parent plans complete against their own integration-level completion criteria.
 
-Parent plans are completed by their own integration-level completion criteria and their own result; child completion alone does not automatically complete the parent.
+## Stop at an invalidated boundary
 
-## Stop using an invalidated plan
-
-If a plan becomes `replan-required`, stop implementing against that plan.
-Record the causal replanning context in `problem.md`, set the affected plan to `replan-required`, and finish the implementation PR as a coherent stopped attempt.
-
-Before that implementation PR is merged, keep unfinished work for the invalidated plan outside confirmed repository state.
-The surrounding repository workflow may preserve that work separately for possible reuse; replanning does not require discarding it.
-
-The replacement planning PR starts only after the repository workflow has merged the stopped implementation PR.
-Treat a user instruction to replan as sufficient to create that planning PR once the merge has occurred; merging the implementation PR remains a repository-workflow decision.
-Base the planning PR on the updated confirmed base state.
+When the plan boundary becomes invalid, stop implementation against that plan.
+Record the causal context in `problem.md`, set the plan to `replan-required`, and finish the attempt as a coherent stopped state.
 
 Create or update `result.md` when the attempt produced an execution result.
-Do not create a result merely to record that replanning was required.
-
-When the same responsibility is replanned, the planning workflow preserves the superseded planning context as linked history and makes the replacement plan current.
-Before reusing preserved unfinished work, compare it with the replacement plan and the confirmed repository state that plan is based on; reuse only the parts that remain consistent with both.
+Keep `problem.md` focused on the assumptions that failed and the boundary impact needed by later replanning.
 
 ## Keep documentation navigable
 
-When this skill adds, deletes, moves, or renames planning/result documents, update the relevant `index.md` in the same change.
-Do not leave a newly created `result.md` or `problem.md` unreachable from the repository's documentation structure when that structure uses indexes.
+When this skill adds, deletes, moves, or renames planning or result documents, update the relevant `index.md` in the same change.
+Keep newly created `result.md` and `problem.md` reachable from the repository's documentation structure when that structure uses indexes.
 
-This skill defines implementation semantics within an implementation PR.
-Commit delivery, push, merge, and other repository-hosting operations belong to the appropriate repository workflow.
+This skill owns implementation semantics for the selected plan.
+Planning and review belong to their respective skills.
