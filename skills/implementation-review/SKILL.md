@@ -16,8 +16,9 @@ Judge acceptance at the current plan boundary.
 For staged work, keep behavior explicitly assigned to later work with that later stage, including cases where the current stage prepares data, hooks, or temporary behavior for it.
 Use subsequent plans or explicit deferred-work records as needed to confirm the boundary and evaluate validation against the behavior owned by the current stage.
 
-Treat a review finding as acceptance-blocking when the current plan contract requires the missing behavior or evidence.
-Keep additional robustness, observability, or future-stage behavior as non-blocking feedback or follow-up work.
+For findings about plan completion, treat missing behavior or evidence as acceptance-blocking when the current plan contract requires it.
+Keep plan-relative robustness, observability, or future-stage improvements beyond that contract as follow-up feedback.
+Apply normal code-review acceptance criteria independently.
 
 Check that the recorded result corresponds to what the implementation actually did and that relevant canonical documentation remains semantically consistent with the implementation.
 
