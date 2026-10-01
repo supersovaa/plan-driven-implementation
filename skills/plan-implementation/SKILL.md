@@ -23,9 +23,8 @@ Handle another plan as a separate implementation task and implementation PR.
 
 Adapt implementation details to the current repository as needed.
 A stale implementation assumption does not require replanning if the plan's purpose, scope, out-of-scope work, and completion criteria can still be preserved.
-Once implementation of a selected plan begins, treat that plan as fixed for that attempt.
+Once implementation of a selected plan begins, keep its active `plan.md` fixed for that attempt.
 Resolve implementation-time discoveries by adapting the implementation within the existing plan boundary and recording the final outcome in `result.md`.
-Keep the active `plan.md` unchanged for that implementation attempt.
 
 Within that boundary, make implementation and design decisions autonomously.
 When a project defines which kinds of canon may be changed, follow that policy.
