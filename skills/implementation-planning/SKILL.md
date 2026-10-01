@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Create or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, and durable state.
+description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, and durable state.
 ---
 
 # Implementation Planning
@@ -76,7 +76,10 @@ Transient execution state and derived readiness remain runtime concerns.
 
 ## Replanning
 
-When planning finds that an unstarted `planned` plan no longer matches the settled requirements or design that define its boundary, record the earlier boundary assumptions, the settled change that invalidated them, and the resulting boundary impact in `problem.md`, then set the plan to `replan-required`.
+Before implementation starts, incorporate planning-time discoveries directly into the active plan and its index.
+Dependency changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
+
+Reserve `replan-required` and `problem.md` for a plan boundary invalidated after an implementation attempt begins.
 
 When planning is invoked for a `replan-required` plan, treat its current `plan.md` and `problem.md` as required context.
 Read any `result.md`, relevant current canon, and index context as applicable.
