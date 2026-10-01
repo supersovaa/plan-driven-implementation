@@ -30,7 +30,7 @@ When prerequisite refactoring depends on a new design decision, return that deci
 Prefer work units that:
 
 - have one clear implementation purpose;
-- can be completed and validated independently;
+- can be completed and validated independently once their direct dependencies are satisfied;
 - are small enough that replanning does not require preserving a large partial implementation;
 - keep future work outside the current scope until it is needed.
 
