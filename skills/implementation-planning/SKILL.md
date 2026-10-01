@@ -69,13 +69,6 @@ Let the implementer choose the simplest temporary form that satisfies that contr
 When a particular temporary form is already a settled constraint, record it with the other implementation constraints.
 Place the deferred full behavior in separate follow-up work when it is settled enough to plan.
 
-## Derive dependencies from intended use
-
-For each plan, derive dependencies from the conditions required for its intended use cases and completion criteria to hold in the repository.
-When another plan's established result must exist first for the intended behavior to be exercised or validated, record that plan as a dependency.
-Treat implementation scope and dependency as separate questions: work may stay outside the current plan's scope while its established result remains a prerequisite.
-Judge dependencies from the intended repository use cases, even when isolated implementation or tests can supply artificial setup.
-
 ## Record dependencies centrally
 
 Determine plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
