@@ -82,6 +82,14 @@ Use only these durable plan states unless an existing repository convention prov
 
 Transient execution state and derived readiness remain runtime concerns.
 
+## Finalize major-numbered work on the user start signal
+
+When a repository groups plans by major number, keep assignments in unstarted majors provisional.
+Use the user's explicit instruction to start a major as the trigger to finalize that major.
+Before execution begins, re-evaluate dependencies among plans currently assigned to it against the latest base state.
+Move plans that depend on another plan in the same major to later majors until no plan in the selected major depends on another plan in that major.
+Then fix the selected major's membership for execution.
+
 ## Replanning
 
 Before implementation starts, incorporate planning-time discoveries directly into the active plan and its index.
