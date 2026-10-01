@@ -87,6 +87,10 @@ Transient execution state and derived readiness remain runtime concerns.
 Before implementation starts, incorporate planning-time discoveries directly into the active plan and its index.
 Dependency changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
 
+During planning updates and replanning, use discoveries to revise the planning decisions they invalidate while preserving implementation choices left open by current canon.
+Carry new implementation constraints into the revised plan only when they are already settled upstream.
+When a valid replacement plan depends on a new requirement or design decision, return that decision to its owning workflow before planning from it.
+
 Reserve `replan-required` and `problem.md` for a plan boundary invalidated after an implementation attempt begins.
 
 When planning is invoked for a `replan-required` plan, treat its current `plan.md` and `problem.md` as required context.
