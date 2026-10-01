@@ -76,6 +76,8 @@ Transient execution state and derived readiness remain runtime concerns.
 
 ## Replanning
 
+When planning finds that an unstarted `planned` plan no longer matches the settled requirements or design that define its boundary, record the invalidating change and boundary impact in `problem.md` and set the plan to `replan-required`.
+
 When planning is invoked for a `replan-required` plan, treat its current `plan.md` and `problem.md` as required context.
 Read any `result.md`, relevant current canon, and index context as applicable.
 
