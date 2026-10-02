@@ -27,6 +27,9 @@ Judge acceptance at the current plan boundary without treating literal adherence
 For staged work, keep behavior explicitly assigned to later work with that later stage, including cases where the current stage prepares data, hooks, or temporary behavior for it.
 Use subsequent plans or explicit deferred-work records as needed to confirm the boundary and evaluate validation against the behavior owned by the current stage.
 
+When the current change transfers responsibility to deferred follow-up work that is settled enough to plan, verify that the source and destination plans are both updated in the same coherent change, the relevant index and dependency or concurrency metadata are synchronized, and ownership remains unambiguous.
+In a pull-request workflow, treat a missing destination plan in the deferral pull request as an acceptance issue unless planning that destination first requires a new upstream requirement or design decision.
+
 When the current plan adds another path to a responsibility already present in repository state, compare the new path with existing paths that establish the same responsibility.
 Treat semantic differences within the current plan's required behavior, including relevant boundary conditions, as current-boundary review findings.
 
