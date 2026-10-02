@@ -36,6 +36,15 @@ Apply normal code-review acceptance criteria independently.
 Check that recorded results correspond to what the implementation actually did and state the implementation outcome directly rather than only as deviations from `plan.md`.
 Check that relevant canonical documentation remains semantically consistent with the implementation.
 
+## Check test evidence
+
+For established requirements and design contracts owned by the current plan, confirm that the implementation has sufficient executable test evidence when the guarantee is reasonably testable.
+Distinguish requirement-level behavior from design-level contracts according to their authoritative source.
+
+Treat missing or materially insufficient test evidence for an established guarantee as an actionable review finding.
+When remediation is needed, prioritize closing that test gap before ordinary cleanup or refactoring, except for prerequisites needed to build or run the tests.
+Use `requirement-driven-testing` to derive or restore the missing evidence.
+
 ## Surface decisions that need human judgment
 
 Review provisional decisions recorded by the implementer and independently notice important implementation or design decisions that may have been omitted from that list.
@@ -53,6 +62,7 @@ Identify:
 - state-specific completion or stopped-attempt problems;
 - result records that do not match the implementation or describe it only as plan deviations;
 - canonical documentation that should be synchronized;
+- insufficient requirement or design test evidence for established guarantees;
 - provisional or newly discovered important decisions requiring user judgment;
 - concrete corrections needed before the implementation can be accepted.
 
