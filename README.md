@@ -1,17 +1,22 @@
 # Implementation Workflow Skills
 
-A lightweight three-skill workflow for planning implementation work, executing one selected plan, and reviewing the result.
+A lightweight implementation workflow with three phase-oriented skills and one testing discipline.
 
-Each skill owns one phase.
+The phase-oriented skills plan implementation work, execute one selected plan, and review the result.
+`requirement-driven-testing` derives executable evidence from settled requirements and design before implementation when practical and restores missing evidence found during review.
+
+Each skill owns one coherent responsibility.
 Later phases treat established outputs of earlier phases as inputs instead of re-performing the earlier phase.
 
 ## Skills
 
 - `implementation-planning`: turn already-settled requirements and design into small implementation plans and replan invalidated boundaries.
+- `requirement-driven-testing`: derive requirement and design tests from settled canon, establish missing coverage before target implementation when practical, and prioritize review-discovered test gaps.
 - `plan-implementation`: execute one already-selected plan, preserve its boundary, record the result, and mark the plan `completed` or `replan-required`.
 - `implementation-review`: review the implementation against the plan/result contract in addition to normal code review.
 
 Planning validity belongs to `implementation-planning`.
+`requirement-driven-testing` establishes executable evidence without redefining requirements or design.
 `plan-implementation` begins from a selected plan and established execution readiness.
 `implementation-review` independently verifies the implementation outcome.
 
