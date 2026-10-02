@@ -75,7 +75,7 @@ Determine direct plan dependencies and record them in the nearest common `index.
 A direct dependency means that one plan requires the established result of another plan before it can be implemented.
 
 Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
-When two plans remain independently completable but permitted implementation choices in either plan may change shared implementation that the other plan relies on or may modify, record a concurrency conflict rather than an artificial dependency.
+When two plans remain independently completable but either may change shared implementation in a way that can invalidate the other's implementation assumptions or overlap with its changes, record a concurrency conflict rather than an artificial dependency.
 A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.
 Record the conflict symmetrically or in another repository convention that makes the mutual exclusion unambiguous.
 
