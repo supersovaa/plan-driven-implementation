@@ -69,6 +69,12 @@ Let the implementer choose the simplest temporary form that satisfies that contr
 When a particular temporary form is already a settled constraint, record it with the other implementation constraints.
 Place the deferred full behavior in separate follow-up work when it is settled enough to plan.
 
+When an existing plan transfers responsibility to later work and that destination is settled enough to plan, treat the deferral as one planning transfer.
+In the same coherent change, update the source plan so it records the deferred responsibility without continuing to own the transferred full behavior, create or update the destination plan, and synchronize the relevant index, direct dependencies, and concurrency constraints.
+In a pull-request workflow, keep those transfer edits in the same pull request.
+Do not leave transferred responsibility unowned or ambiguously owned by both plans.
+If the destination cannot yet be planned because it depends on a new requirement or design decision, record the deferred responsibility and return that decision to its owning workflow instead of inventing a follow-up plan.
+
 ## Record dependencies and concurrency constraints centrally
 
 Determine direct plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
