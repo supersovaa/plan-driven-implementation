@@ -40,9 +40,10 @@ For a new or changed requirement-level behavior:
 1. Identify the smallest observable scenario that demonstrates the requirement.
 2. Add or select the test that establishes that scenario.
 3. Run it before the target implementation.
-4. Confirm that it fails because the required behavior is not yet satisfied.
-5. Implement the behavior.
-6. Run the requirement test and relevant regression tests until they pass.
+4. If the required behavior is not already satisfied, confirm that the test fails because that behavior is missing.
+5. If the test already passes, verify that the existing behavior genuinely satisfies the requirement instead of manufacturing a failure.
+6. Implement any remaining required behavior.
+7. Run the requirement test and relevant regression tests until they pass.
 
 Apply the same ordering to design tests when an established design contract needs direct executable evidence.
 
