@@ -1,6 +1,6 @@
 ---
 name: implementation-planning
-description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, and durable state.
+description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Implementation Planning
@@ -69,10 +69,17 @@ Let the implementer choose the simplest temporary form that satisfies that contr
 When a particular temporary form is already a settled constraint, record it with the other implementation constraints.
 Place the deferred full behavior in separate follow-up work when it is settled enough to plan.
 
-## Record dependencies centrally
+## Record dependencies and concurrency constraints centrally
 
-Determine plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
-The index should make it possible to identify each current plan, its durable state, and its direct dependencies.
+Determine direct plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
+A direct dependency means that one plan requires the established result of another plan before it can be implemented.
+
+Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
+When two plans remain independently completable but their permitted implementation choices may modify the same shared implementation responsibility, record a concurrency conflict rather than an artificial dependency.
+A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.
+Record the conflict symmetrically or in another repository convention that makes the mutual exclusion unambiguous.
+
+The index should make it possible to identify each current plan, its durable state, its direct dependencies, and its concurrency conflicts.
 
 Use only these durable plan states unless an existing repository convention provides an equivalent model:
 
@@ -85,7 +92,7 @@ Transient execution state and derived readiness remain runtime concerns.
 ## Replanning
 
 Before implementation starts, incorporate planning-time discoveries directly into the active plan and its index.
-Dependency changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
+Dependency changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
 
 During planning updates and replanning, use discoveries to revise the planning decisions they invalidate while preserving implementation choices left open by settled constraints.
 When a valid replacement plan depends on a new requirement or design decision, return that decision to its owning workflow before planning from it.
