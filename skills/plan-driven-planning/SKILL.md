@@ -1,9 +1,9 @@
 ---
-name: implementation-planning
+name: plan-driven-planning
 description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
-# Implementation Planning
+# Plan-Driven Planning
 
 Use this skill after the relevant requirements and design decisions are settled.
 Treat those upstream decisions as established inputs.
@@ -120,7 +120,7 @@ Return the current plan to `planned` in the same change.
 
 ## Keep documentation navigable
 
-When this skill adds, deletes, moves, or renames implementation-planning documents, update the relevant `index.md` in the same change.
+When this skill adds, deletes, moves, or renames implementation planning documents, update the relevant `index.md` in the same change.
 Add links when their target documents exist.
 
 This skill owns implementation planning and replanning semantics.

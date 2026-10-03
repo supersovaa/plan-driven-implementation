@@ -1,9 +1,9 @@
 ---
-name: implementation-review
+name: plan-driven-review
 description: Review an implementation attempt in a plan/result workflow according to its durable plan state, focusing on boundary fidelity, recorded outcomes, canonical consistency, and provisional decisions needing user judgment.
 ---
 
-# Implementation Review
+# Plan-Driven Review
 
 Use this skill as an addition to normal code review for an implementation attempt governed by a durable plan state and plan/result records.
 Keep general code-review methodology with the normal review workflow.
