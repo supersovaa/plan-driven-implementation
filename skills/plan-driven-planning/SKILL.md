@@ -57,6 +57,11 @@ Reference canonical requirements and design instead of copying them into the pla
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
+## Ground completion criteria in current responsibilities
+
+Derive the current plan and its completion criteria from concrete responsibilities that can be established and validated within that plan once its direct dependencies are satisfied.
+When another concrete use case or implementation path introduces overlapping responsibilities, extract the responsibility they actually share and generalize only as far as those concrete cases require.
+
 ## Plan deferred stages explicitly
 
 When a use case should flow end to end before one stage reaches its final implementation, decide that staged approach in the plan.
