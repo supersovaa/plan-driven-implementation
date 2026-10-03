@@ -7,13 +7,13 @@ Later phases treat established outputs of earlier phases as inputs instead of re
 
 ## Skills
 
-- `implementation-planning`: turn already-settled requirements and design into small implementation plans and replan invalidated boundaries.
-- `plan-implementation`: execute one already-selected plan, preserve its boundary, record the result, and mark the plan `completed` or `replan-required`.
-- `implementation-review`: review the implementation against the plan/result contract in addition to normal code review.
+- `plan-driven-planning`: turn already-settled requirements and design into small implementation plans and replan invalidated boundaries.
+- `plan-driven-implementation`: execute one already-selected plan, preserve its boundary, record the result, and mark the plan `completed` or `replan-required`.
+- `plan-driven-review`: review the implementation against the plan/result contract in addition to normal code review.
 
-Planning validity belongs to `implementation-planning`.
-`plan-implementation` begins from a selected plan and established execution readiness.
-`implementation-review` independently verifies the implementation outcome.
+Planning validity belongs to `plan-driven-planning`.
+`plan-driven-implementation` begins from a selected plan and established execution readiness.
+`plan-driven-review` independently verifies the implementation outcome.
 
 ## Default document convention
 
