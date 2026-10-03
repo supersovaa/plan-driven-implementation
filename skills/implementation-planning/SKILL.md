@@ -56,10 +56,9 @@ A plan should define, in whatever structure fits the repository:
 ## Ground completion criteria in current responsibilities
 
 Derive completion criteria from responsibilities established by current requirements, design, repository state, and direct dependencies.
-Keep each current completion criterion focused on behavior that can be established and validated within the current plan.
-When later work may share behavior with the current work, treat that reuse as a candidate for later extraction until the later use case provides concrete responsibilities to compare.
-When multiple existing paths already establish a shared responsibility, plan that shared responsibility from the evidence available in the current repository state.
-A later use case becomes a basis for further common extraction when its concrete responsibilities are available to compare with the existing implementation.
+Keep each completion criterion focused on behavior that can be established and validated within the current plan.
+Treat anticipated reuse with later work as a candidate for later extraction; revisit the shared boundary when that later use case provides concrete responsibilities to compare.
+When multiple existing paths already establish a shared responsibility, plan that shared responsibility from evidence available in the current repository state.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
