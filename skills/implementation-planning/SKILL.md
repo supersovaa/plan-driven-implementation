@@ -53,16 +53,14 @@ A plan should define, in whatever structure fits the repository:
 - what the implementer may decide autonomously;
 - completion criteria.
 
-## Ground completion criteria in current responsibilities
-
-Derive completion criteria from responsibilities established by current requirements, design, repository state, and direct dependencies.
-Keep each completion criterion focused on behavior that can be established and validated within the current plan.
-Treat anticipated reuse with later work as a candidate for later extraction; revisit the shared boundary when that later use case provides concrete responsibilities to compare.
-When multiple existing paths already establish a shared responsibility, plan that shared responsibility from evidence available in the current repository state.
-
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
+
+## Ground completion criteria in current responsibilities
+
+Derive the current plan and its completion criteria from concrete responsibilities that can be established and validated within that plan once its direct dependencies are satisfied.
+When another concrete use case or implementation path introduces overlapping responsibilities, extract the responsibility they actually share and generalize only as far as those concrete cases require.
 
 ## Plan deferred stages explicitly
 
