@@ -57,6 +57,15 @@ Reference canonical requirements and design instead of copying them into the pla
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
+## Record test-planning decisions at plan level
+
+For testing, record the validation scope and settled test-planning decisions that shape executable evidence for the current implementation boundary.
+Relevant decisions may include boundary coverage, combinations, regression scope, validation methods, and test-support constraints.
+
+Use canonical requirements and design as the source of expected behavior.
+Let the testing workflow derive concrete executable cases from those sources together with the plan-level testing decisions.
+Prefer plan content that contributes implementation-specific testing guidance beyond a case-by-case restatement of canonical behavior.
+
 ## Ground completion criteria in current responsibilities
 
 Derive the current plan and its completion criteria from concrete responsibilities that can be established and validated within that plan once its direct dependencies are satisfied.
