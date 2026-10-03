@@ -88,6 +88,11 @@ Record the conflict symmetrically or in another repository convention that makes
 
 The index should make it possible to identify each current plan, its durable state, its direct dependencies, and its concurrency conflicts.
 
+When upstream planning uses concrete user-facing use cases as its primary units, structure the index with a separate plan table for each use case rather than one table ordered primarily by plan identifier or sequence number.
+Treat plan identifiers and sequence numbers as plan attributes, not as the primary document-grouping axis.
+If one plan is relevant to multiple use cases, it may be referenced from each relevant use-case table.
+Keep mutable plan metadata, especially durable state, authoritative in one canonical entry and use references from the other use-case tables instead of duplicating that state.
+
 Use only these durable plan states unless an existing repository convention provides an equivalent model:
 
 - `planned`
