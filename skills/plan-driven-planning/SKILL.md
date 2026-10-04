@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, establishing required tests before plan finalization and recording explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
@@ -52,24 +52,30 @@ A plan should define, in whatever structure fits the repository:
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
 - completion criteria;
-- links to the tests that define the required validation for the plan, when applicable.
+- links to the required tests established before the plan is finalized, when applicable.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Record test-planning decisions and required-test links at plan level
+## Establish required tests before finalizing the plan
 
-For testing, record the validation scope and settled test-planning decisions that shape evidence for the current implementation boundary.
-Relevant decisions may include boundary coverage, combinations, regression scope, validation methods, and test-support constraints.
+Before finalizing a new or updated plan, derive the tests that the planned implementation must satisfy from the relevant settled requirements and design.
+Create or update those required-test definitions as repository-persistent artifacts before treating the plan as finalized.
+Required-test definitions specify test cases and expected outcomes; they do not require executable test code to exist yet.
 
-Link the plan to the tests that define what the implementation must ultimately satisfy.
-Treat these links as references to required test definitions or test cases, not as a requirement that corresponding test code already exist when the plan is created.
-Use repository conventions for the canonical test definition and its link target.
+Use repository conventions for required-test placement and links.
+Each required test should remain traceable to the requirement or design guarantee it evidences and be specific enough for the testing workflow to implement without inventing expected behavior.
+Reuse an existing required-test definition when it already establishes the needed guarantee.
 
-Use canonical requirements and design as the source of expected behavior.
-Let the testing workflow derive or implement concrete executable tests from those sources together with the linked required tests and plan-level testing decisions.
-Prefer plan content that contributes implementation-specific testing guidance beyond a case-by-case restatement of canonical behavior.
+Link the plan to every required test that forms part of its completion evidence.
+Record any settled validation scope, boundary coverage, combinations, regression scope, validation methods, or test-support constraints that materially shape those tests.
+
+When settled requirements or design do not determine an expected result needed by a required test, return that ambiguity to its owning workflow before finalizing the plan.
+Use canonical requirements and design as the source of expected behavior rather than allowing the required-test artifact to become an independent source of requirements.
+
+The testing workflow implements executable tests from the linked required tests and applicable canonical sources.
+Executable test structure, framework details, fixtures, and other test-code mechanics remain with that workflow.
 
 ## Ground completion criteria in current responsibilities
 
