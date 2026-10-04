@@ -7,9 +7,9 @@ Later phases treat established outputs of earlier phases as inputs instead of re
 
 ## Skills
 
-- `plan-driven-planning`: turn already-settled requirements and design into small implementation plans and replan invalidated boundaries.
-- `plan-driven-implementation`: execute one already-selected plan, preserve its boundary, record the result, and mark the plan `completed` or `replan-required`.
-- `plan-driven-review`: review the implementation against the plan/result contract in addition to normal code review.
+- `plan-driven-planning`: turn already-settled requirements and design into small implementation plans, establish their required tests before finalization, and replan invalidated boundaries.
+- `plan-driven-implementation`: execute one already-selected plan against its linked required tests, preserve its boundary, record the result, and mark the plan `completed` or `replan-required`.
+- `plan-driven-review`: review the implementation against the plan, linked required tests, and result contract in addition to normal code review.
 
 Planning validity belongs to `plan-driven-planning`.
 `plan-driven-implementation` begins from a selected plan and established execution readiness.
