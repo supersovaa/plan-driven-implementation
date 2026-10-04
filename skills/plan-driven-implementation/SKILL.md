@@ -17,7 +17,7 @@ Keep the selected plan as the sole implementation boundary for the attempt.
 ## Preserve the plan boundary
 
 Adapt implementation details to the current repository as needed.
-A stale implementation assumption may be adapted when it is not a settled plan constraint and the plan's purpose, scope, out-of-scope work, settled constraints, and completion criteria remain valid.
+A stale implementation assumption may be adapted when it is not a settled plan constraint and the plan's purpose, scope, out-of-scope work, settled constraints, linked required tests, and completion criteria remain valid.
 This may include restructuring implementation established by a dependency or ancestor plan when the selected plan's contract and current canon remain valid.
 Recorded concurrency conflicts constrain simultaneous execution only; do not treat them as dependencies or as restrictions on otherwise-permitted implementation choices.
 Treat the selected plan as fixed for the attempt.
@@ -27,7 +27,7 @@ Within the plan boundary, make implementation and design decisions autonomously.
 When a project defines which kinds of canon may be changed, follow that policy.
 If no project policy exists, use a conservative default: design canon may be updated within the plan boundary, while requirements, rules, and external-specification canon stay with their owning workflow.
 
-When completing the work requires changing the plan's purpose, scope, out-of-scope work, settled constraints, or completion criteria, move the plan to `replan-required`.
+When completing the work requires changing the plan's purpose, scope, out-of-scope work, settled constraints, linked required tests, or completion criteria, move the plan to `replan-required`.
 
 ## Record what actually happened
 
