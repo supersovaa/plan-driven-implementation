@@ -11,7 +11,7 @@ Begin from the selected plan and established execution readiness.
 ## Read the implementation contract
 
 Before changing implementation code, read the selected `plan.md`, its linked required tests, the `index.md` that owns its state, referenced requirement and design canon, and relevant repository-level implementation rules.
-Treat the current plan and current canon as authoritative for this attempt.
+Treat the current plan, its linked required tests, and current canon as authoritative for this attempt.
 Keep the selected plan as the sole implementation boundary for the attempt.
 
 ## Preserve the plan boundary
