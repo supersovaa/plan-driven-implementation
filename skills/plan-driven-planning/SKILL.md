@@ -65,6 +65,7 @@ Create or update those required-test definitions as repository-persistent artifa
 Required-test definitions specify test cases and expected outcomes; they do not require executable test code to exist yet.
 
 Use repository conventions for required-test placement and links.
+When no repository convention exists, keep plan-owned required-test definitions under `required-tests/` beside the active `plan.md`.
 Each required test should remain traceable to the requirement or design guarantee it evidences and be specific enough for the testing workflow to implement without inventing expected behavior.
 Reuse an existing required-test definition when it already establishes the needed guarantee.
 
@@ -144,7 +145,8 @@ For each relevant historical planning bundle, read its `plan.md` and `problem.md
 Treat current canon as authoritative and historical records as context.
 
 Preserve superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
-Use repository conventions for historical placement; otherwise keep each superseded planning bundle in a semantic subdirectory under `history/`.
+Preserve the required-test definitions owned by the superseded plan with the same historical planning bundle, and update the archived plan's links so they continue to identify that historical test contract.
+Use repository conventions for historical placement; otherwise keep each superseded planning bundle, including its plan-owned `required-tests/`, in a semantic subdirectory under `history/`.
 Keep historical plans outside the active index and keep predecessor links traversable after archival.
 Return the current plan to `planned` in the same change.
 
