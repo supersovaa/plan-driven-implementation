@@ -143,8 +143,8 @@ For each relevant historical planning bundle, read its `plan.md`, the required-t
 Treat current canon as authoritative and historical records as context.
 
 Preserve superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
-Preserve the required-test definitions owned by the superseded plan with the same historical planning bundle, and update the archived plan's links so they continue to identify that historical test contract.
-When a repository convention stores required-test definitions outside the planning bundle, preserve or version the references so the exact historical test contract remains recoverable.
+Preserve the required-test definitions owned by the superseded plan with the same historical planning bundle, and update the archived plan's links so they continue to identify that historical required-test-definition contract.
+When a repository convention stores required-test definitions outside the planning bundle, preserve or version the references so the exact historical required-test-definition contract remains recoverable.
 Use repository conventions for historical placement; otherwise keep each superseded planning bundle, including its plan-owned `required-tests/`, in a semantic subdirectory under `history/`.
 Keep historical plans outside the active index and keep predecessor links traversable after archival.
 Return the current plan to `planned` in the same change.
