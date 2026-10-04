@@ -52,28 +52,28 @@ A plan should define, in whatever structure fits the repository:
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
 - completion criteria;
-- links to the required tests established before the plan is finalized.
+- links to the required-test definitions established before the plan is finalized.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Establish required tests before finalizing the plan
+## Establish required-test definitions before finalizing the plan
 
-Before finalizing a new or updated plan, derive the tests that the planned implementation must satisfy from the relevant settled requirements and design.
+Before finalizing a new or updated plan, derive the required-test definitions that specify what the planned implementation must satisfy from the relevant settled requirements and design.
 Create or update those required-test definitions as repository-persistent artifacts before treating the plan as finalized.
 Required-test definitions specify test cases and expected outcomes; they do not require executable test code to exist yet.
 
 Use repository conventions for required-test placement and links.
 When no repository convention exists, keep plan-owned required-test definitions under `required-tests/` beside the active `plan.md`.
-Each required test should remain traceable to the requirement or design guarantee it evidences and be specific enough for the testing workflow to implement without inventing expected behavior.
-Link the plan to every required test that forms part of its completion evidence.
+Each required-test definition should remain traceable to the requirement or design guarantee it evidences and be specific enough for the testing workflow to implement without inventing expected behavior.
+Link the plan to every required-test definition that forms part of its completion evidence.
 Record any settled validation scope, boundary coverage, combinations, regression scope, validation methods, or test-support constraints that materially shape those tests.
 
-When settled requirements or design do not determine an expected result needed by a required test, return that ambiguity to its owning workflow before finalizing the plan.
+When settled requirements or design do not determine an expected result needed by a required-test definition, return that ambiguity to its owning workflow before finalizing the plan.
 Use canonical requirements and design as the source of expected behavior rather than allowing the required-test artifact to become an independent source of requirements.
 
-The testing workflow implements executable tests from the linked required tests and applicable canonical sources.
+The testing workflow implements executable tests from the linked required-test definitions and applicable canonical sources.
 Executable test structure, framework details, fixtures, and other test-code mechanics remain with that workflow.
 
 ## Ground completion criteria in current responsibilities
@@ -128,18 +128,18 @@ Transient execution state and derived readiness remain runtime concerns.
 ## Replanning
 
 Before implementation starts, incorporate planning-time discoveries directly into the active plan, its linked required-test definitions, and its index.
-Required-test changes, dependency changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
+Required-test-definition changes, dependency changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
 
 During planning updates and replanning, use discoveries to revise the planning decisions they invalidate while preserving implementation choices left open by settled constraints.
 When a valid replacement plan depends on a new requirement or design decision, return that decision to its owning workflow before planning from it.
 
 Reserve `replan-required` and `problem.md` for a plan boundary invalidated after an implementation attempt begins.
 
-When planning is invoked for a `replan-required` plan, treat its current `plan.md` and `problem.md` as required context.
+When planning is invoked for a `replan-required` plan, treat its current `plan.md`, linked required-test definitions, and `problem.md` as required context.
 Read any `result.md`, relevant current canon, and index context as applicable.
 
 Follow linked planning history only as far as needed to detect repeated invalid assumptions or boundaries.
-For each relevant historical planning bundle, read its `plan.md` and `problem.md`, and read `result.md` when its execution result matters to the new boundary.
+For each relevant historical planning bundle, read its `plan.md`, the required-test definitions linked by that plan, and its `problem.md`, and read `result.md` when its execution result matters to the new boundary.
 Treat current canon as authoritative and historical records as context.
 
 Preserve superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
