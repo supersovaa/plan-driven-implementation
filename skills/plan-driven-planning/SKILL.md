@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, establishing required tests before plan finalization and recording explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, establishing required-test definitions before plan finalization and recording explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
