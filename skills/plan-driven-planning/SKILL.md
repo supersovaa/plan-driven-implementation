@@ -127,7 +127,7 @@ Transient execution state and derived readiness remain runtime concerns.
 
 ## Replanning
 
-Before implementation starts, incorporate planning-time discoveries directly into the active plan and its index.
+Before implementation starts, incorporate planning-time discoveries directly into the active plan, its linked required-test definitions, and its index.
 Required-test changes, dependency changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
 
 During planning updates and replanning, use discoveries to revise the planning decisions they invalidate while preserving implementation choices left open by settled constraints.
