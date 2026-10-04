@@ -17,7 +17,7 @@ Treat missing behavior or evidence required by the current plan contract as acce
 
 For a `replan-required` plan, review the attempt as an intentional stopped state.
 Confirm that implementation stopped at the invalidated boundary, `problem.md` records the causal context and boundary impact needed for replanning, and any `result.md` matches what the attempt actually established.
-Judge the stopped state against those responsibilities rather than the invalidated completion criteria.
+Judge the stopped state against those responsibilities rather than the invalidated parts of the plan contract, including invalidated required tests or completion criteria.
 
 For a `planned` plan, review the current implementation against the active plan boundary and linked required tests, and report what remains before it can be completed.
 
