@@ -51,16 +51,25 @@ A plan should define, in whatever structure fits the repository:
 - the required behavior of temporary implementation, when a stage will be completed later;
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
-- completion criteria.
+- completion criteria;
+- links to the executable tests whose passing results are required completion evidence, when the planned behavior is meaningfully testable.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Record test-planning decisions at plan level
+## Record test-planning decisions and completion-test links at plan level
 
 For testing, record the validation scope and settled test-planning decisions that shape executable evidence for the current implementation boundary.
 Relevant decisions may include boundary coverage, combinations, regression scope, validation methods, and test-support constraints.
+
+For every completion criterion that can be meaningfully established by executable tests, link from the plan to the concrete repository tests whose passing results are required evidence for completion.
+Use repository conventions for the link target; when an individual test cannot be linked directly, link to the repository location that owns it and identify the concrete test target.
+Reuse existing tests when they already provide sufficient evidence.
+
+When required executable test evidence does not yet exist, return that gap to the testing workflow so it can establish the test before target implementation.
+Before execution begins, update the still-\`planned\` plan to link to the resulting test.
+Do not substitute a prospective path or test name for a link to a test that does not yet exist.
 
 Use canonical requirements and design as the source of expected behavior.
 Let the testing workflow derive concrete executable cases from those sources together with the plan-level testing decisions.
