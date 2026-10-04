@@ -58,11 +58,11 @@ Reference canonical requirements and design instead of copying them into the pla
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Define required tests before finalizing the plan
+## Define all required tests before finalizing the plan
 
-Before finalizing a plan, derive the test cases and expected outcomes the implementation must satisfy from settled requirements and design.
-Record those test definitions in repository-persistent documentation using repository conventions, and link them from the plan.
-These are planning-time test definitions, not executable test code.
+Before finalizing a plan, derive every test case and expected outcome required to determine whether that plan is complete from settled requirements and design.
+Do not treat the plan as finalized until all such required test definitions are recorded in repository-persistent documentation using repository conventions and linked from the plan.
+These are planning-time definitions of the tests required for plan completion, not executable test code.
 When requirements or design do not determine an expected outcome, return that ambiguity to its owning workflow.
 Executable test implementation belongs to the testing workflow.
 
