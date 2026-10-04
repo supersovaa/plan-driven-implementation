@@ -23,11 +23,15 @@ When a repository has no established equivalent convention, use semantic work di
 docs/implementation/<work-name>/
 ├── index.md
 ├── plan.md
+├── required-tests/
+│   └── <test-name>.md
 ├── result.md     # created when an execution result exists
 ├── problem.md    # replanning context for replan-required work
 └── history/      # superseded planning records, when needed
     └── <superseded-boundary>/
         ├── plan.md
+        ├── required-tests/
+        │   └── <test-name>.md
         ├── result.md     # present only when an execution result exists
         └── problem.md
 ```
@@ -40,12 +44,13 @@ Plan state is durable repository state, with these meanings:
 - `completed`: the current plan passed its completion audit and its result is recorded.
 - `replan-required`: the current plan boundary became invalid for continued implementation.
 
+Plan-owned required-test definitions under `required-tests/` define the completion cases established before plan finalization; executable test code is created separately by the testing workflow.
 `problem.md` carries the causal context from an implementation attempt that invalidated the plan boundary.
 A replacement plan links directly to the immediately preceding plan, while superseded planning bundles remain reachable as history.
 Current canon remains authoritative.
 
 Before implementation starts, planning-time discoveries update the active plan and index directly, including dependency, concurrency-constraint, ordering, placement, and boundary changes.
-Once implementation starts, its active plan stays fixed for that attempt.
+Once implementation starts, its active plan and linked required-test contract stay fixed for that attempt.
 Implementation-time discoveries within the existing boundary belong to implementation and its recorded result.
 `result.md` records what the implementation established directly rather than only as deviations from `plan.md`.
 
