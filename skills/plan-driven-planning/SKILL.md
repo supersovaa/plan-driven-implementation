@@ -52,7 +52,7 @@ A plan should define, in whatever structure fits the repository:
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
 - completion criteria;
-- links to the required tests established before the plan is finalized, when applicable.
+- links to the required tests established before the plan is finalized.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
@@ -67,8 +67,6 @@ Required-test definitions specify test cases and expected outcomes; they do not 
 Use repository conventions for required-test placement and links.
 When no repository convention exists, keep plan-owned required-test definitions under `required-tests/` beside the active `plan.md`.
 Each required test should remain traceable to the requirement or design guarantee it evidences and be specific enough for the testing workflow to implement without inventing expected behavior.
-Reuse an existing required-test definition when it already establishes the needed guarantee.
-
 Link the plan to every required test that forms part of its completion evidence.
 Record any settled validation scope, boundary coverage, combinations, regression scope, validation methods, or test-support constraints that materially shape those tests.
 
@@ -146,6 +144,7 @@ Treat current canon as authoritative and historical records as context.
 
 Preserve superseded planning records as history, create the replacement `plan.md`, and link it directly to the immediately preceding plan.
 Preserve the required-test definitions owned by the superseded plan with the same historical planning bundle, and update the archived plan's links so they continue to identify that historical test contract.
+When a repository convention stores required-test definitions outside the planning bundle, preserve or version the references so the exact historical test contract remains recoverable.
 Use repository conventions for historical placement; otherwise keep each superseded planning bundle, including its plan-owned `required-tests/`, in a semantic subdirectory under `history/`.
 Keep historical plans outside the active index and keep predecessor links traversable after archival.
 Return the current plan to `planned` in the same change.
