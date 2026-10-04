@@ -52,27 +52,23 @@ A plan should define, in whatever structure fits the repository:
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
 - completion criteria;
-- links to the executable tests whose passing results are required completion evidence, when the planned behavior is meaningfully testable.
+- links to the tests that define the required validation for the plan, when applicable.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Record test-planning decisions and completion-test links at plan level
+## Record test-planning decisions and required-test links at plan level
 
-For testing, record the validation scope and settled test-planning decisions that shape executable evidence for the current implementation boundary.
+For testing, record the validation scope and settled test-planning decisions that shape evidence for the current implementation boundary.
 Relevant decisions may include boundary coverage, combinations, regression scope, validation methods, and test-support constraints.
 
-For every completion criterion that can be meaningfully established by executable tests, link from the plan to the concrete repository tests whose passing results are required evidence for completion.
-Use repository conventions for the link target; when an individual test cannot be linked directly, link to the repository location that owns it and identify the concrete test target.
-Reuse existing tests when they already provide sufficient evidence.
-
-When required executable test evidence does not yet exist, return that gap to the testing workflow so it can establish the test before target implementation.
-Before execution begins, update the still-`planned` plan to link to the resulting test.
-Do not substitute a prospective path or test name for a link to a test that does not yet exist.
+Link the plan to the tests that define what the implementation must ultimately satisfy.
+Treat these links as references to required test definitions or test cases, not as a requirement that corresponding test code already exist when the plan is created.
+Use repository conventions for the canonical test definition and its link target.
 
 Use canonical requirements and design as the source of expected behavior.
-Let the testing workflow derive concrete executable cases from those sources together with the plan-level testing decisions.
+Let the testing workflow derive or implement concrete executable tests from those sources together with the linked required tests and plan-level testing decisions.
 Prefer plan content that contributes implementation-specific testing guidance beyond a case-by-case restatement of canonical behavior.
 
 ## Ground completion criteria in current responsibilities
