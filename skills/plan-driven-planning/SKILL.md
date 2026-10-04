@@ -68,10 +68,10 @@ Use repository conventions for required-test placement and links.
 When no repository convention exists, keep plan-owned required-test definitions under `required-tests/` beside the active `plan.md`.
 Each required-test definition should remain traceable to the requirement or design guarantee it evidences and be specific enough for the testing workflow to implement without inventing expected behavior.
 Link the plan to every required-test definition that forms part of its completion evidence.
-Record any settled validation scope, boundary coverage, combinations, regression scope, validation methods, or test-support constraints that materially shape those tests.
+Record any settled validation scope, boundary coverage, combinations, regression scope, validation methods, or test-support constraints that materially shape those required-test definitions.
 
 When settled requirements or design do not determine an expected result needed by a required-test definition, return that ambiguity to its owning workflow before finalizing the plan.
-Use canonical requirements and design as the source of expected behavior rather than allowing the required-test artifact to become an independent source of requirements.
+Use canonical requirements and design as the source of expected behavior rather than allowing a required-test definition to become an independent source of requirements.
 
 The testing workflow implements executable tests from the linked required-test definitions and applicable canonical sources.
 Executable test structure, framework details, fixtures, and other test-code mechanics remain with that workflow.
