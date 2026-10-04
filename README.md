@@ -7,9 +7,9 @@ Later phases treat established outputs of earlier phases as inputs instead of re
 
 ## Skills
 
-- `plan-driven-planning`: turn already-settled requirements and design into small implementation plans, establish their required-test definitions before finalization, and replan invalidated boundaries.
-- `plan-driven-implementation`: execute one already-selected plan against its linked required-test definitions, preserve its boundary, record the result, and mark the plan `completed` or `replan-required`.
-- `plan-driven-review`: review the implementation against the plan, linked required-test definitions, and result contract in addition to normal code review.
+- `plan-driven-planning`: turn already-settled requirements and design into small implementation plans and replan invalidated boundaries.
+- `plan-driven-implementation`: execute one already-selected plan, preserve its boundary, record the result, and mark the plan `completed` or `replan-required`.
+- `plan-driven-review`: review the implementation against the plan/result contract in addition to normal code review.
 
 Planning validity belongs to `plan-driven-planning`.
 `plan-driven-implementation` begins from a selected plan and established execution readiness.
@@ -23,15 +23,11 @@ When a repository has no established equivalent convention, use semantic work di
 docs/implementation/<work-name>/
 ├── index.md
 ├── plan.md
-├── required-tests/
-│   └── <test-name>.md
 ├── result.md     # created when an execution result exists
 ├── problem.md    # replanning context for replan-required work
 └── history/      # superseded planning records, when needed
     └── <superseded-boundary>/
         ├── plan.md
-        ├── required-tests/
-        │   └── <test-name>.md
         ├── result.md     # present only when an execution result exists
         └── problem.md
 ```
@@ -44,13 +40,12 @@ Plan state is durable repository state, with these meanings:
 - `completed`: the current plan passed its completion audit and its result is recorded.
 - `replan-required`: the current plan boundary became invalid for continued implementation.
 
-Plan-owned required-test definitions under `required-tests/` define the completion cases established before plan finalization; executable test code is created separately by the testing workflow.
 `problem.md` carries the causal context from an implementation attempt that invalidated the plan boundary.
 A replacement plan links directly to the immediately preceding plan, while superseded planning bundles remain reachable as history.
 Current canon remains authoritative.
 
 Before implementation starts, planning-time discoveries update the active plan and index directly, including dependency, concurrency-constraint, ordering, placement, and boundary changes.
-Once implementation starts, its active plan and linked required-test-definition contract stay fixed for that attempt.
+Once implementation starts, its active plan stays fixed for that attempt.
 Implementation-time discoveries within the existing boundary belong to implementation and its recorded result.
 `result.md` records what the implementation established directly rather than only as deviations from `plan.md`.
 
