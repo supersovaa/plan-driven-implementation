@@ -59,7 +59,7 @@ The plan defines what must be established and the boundary of the work; implemen
 
 ## Define all required tests before finalizing the plan
 
-Before finalizing a plan, derive every test case and expected outcome required to determine whether that plan is complete from settled requirements and design.
+Before finalizing a plan, derive every test case and expected outcome required by the plan's settled completion contract, grounded in settled requirements and design.
 Do not treat the plan as finalized until all such required test definitions are recorded in repository-persistent documentation using repository conventions and linked as part of the plan's completion criteria.
 These are planning-time definitions of the tests required for plan completion, not executable test code.
 When requirements or design do not determine an expected outcome, return that ambiguity to its owning workflow.
