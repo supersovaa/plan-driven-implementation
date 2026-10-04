@@ -51,11 +51,20 @@ A plan should define, in whatever structure fits the repository:
 - the required behavior of temporary implementation, when a stage will be completed later;
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
-- completion criteria.
+- completion criteria;
+- links to the required test definitions.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
+
+## Define required tests before finalizing the plan
+
+Before finalizing a plan, derive the test cases and expected outcomes the implementation must satisfy from settled requirements and design.
+Record those test definitions in repository-persistent documentation using repository conventions, and link them from the plan.
+These are planning-time test definitions, not executable test code.
+When requirements or design do not determine an expected outcome, return that ambiguity to its owning workflow.
+Executable test implementation belongs to the testing workflow.
 
 ## Ground completion criteria in current responsibilities
 
