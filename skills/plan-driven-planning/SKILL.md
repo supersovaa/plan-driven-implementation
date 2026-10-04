@@ -68,7 +68,7 @@ Use repository conventions for the link target; when an individual test cannot b
 Reuse existing tests when they already provide sufficient evidence.
 
 When required executable test evidence does not yet exist, return that gap to the testing workflow so it can establish the test before target implementation.
-Before execution begins, update the still-\`planned\` plan to link to the resulting test.
+Before execution begins, update the still-`planned` plan to link to the resulting test.
 Do not substitute a prospective path or test name for a link to a test that does not yet exist.
 
 Use canonical requirements and design as the source of expected behavior.
