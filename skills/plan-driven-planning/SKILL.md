@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, defining all tests required for plan completion before finalization, with explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
@@ -51,18 +51,17 @@ A plan should define, in whatever structure fits the repository:
 - the required behavior of temporary implementation, when a stage will be completed later;
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
-- completion criteria;
-- links to the required test definitions.
+- completion criteria, including links to the required test definitions that must be satisfied for completion.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Define required tests before finalizing the plan
+## Define all required tests before finalizing the plan
 
-Before finalizing a plan, derive the test cases and expected outcomes the implementation must satisfy from settled requirements and design.
-Record those test definitions in repository-persistent documentation using repository conventions, and link them from the plan.
-These are planning-time test definitions, not executable test code.
+Before finalizing a plan, derive every test case and expected outcome required by the plan's settled completion contract, grounded in settled requirements and design.
+Do not treat the plan as finalized until all such required test definitions are recorded in repository-persistent documentation using repository conventions and linked as part of the plan's completion criteria.
+These are planning-time definitions of the tests required for plan completion, not executable test code.
 When requirements or design do not determine an expected outcome, return that ambiguity to its owning workflow.
 Executable test implementation belongs to the testing workflow.
 
