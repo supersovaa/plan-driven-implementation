@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, defining all tests required for plan completion before finalization, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
@@ -51,16 +51,21 @@ A plan should define, in whatever structure fits the repository:
 - the required behavior of temporary implementation, when a stage will be completed later;
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
-- completion criteria, including links to the required test definitions that must be satisfied for completion.
+- completion criteria, including the validation obligations that must be satisfied for completion and links to required test definitions when already available.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Define all required tests before finalizing the plan
+## Audit required test definitions before execution readiness
 
-Before finalizing a plan, derive every test case and expected outcome required by the plan's settled completion contract, grounded in settled requirements and design.
-Do not treat the plan as finalized until all such required test definitions are recorded in repository-persistent documentation using repository conventions and linked as part of the plan's completion criteria.
+Required test definitions may be recorded during plan creation when they are already known.
+Individual plan review does not audit whether every required test case and expected outcome has been recorded.
+
+Before implementation begins, audit the plan's settled completion contract and derive every required test case and expected outcome, grounded in settled requirements and design.
+When a coordinating workflow defines a later pre-execution gate, such as fixing a wave of plans for implementation, that gate owns this completeness audit.
+Do not establish execution readiness until all required test definitions are recorded in repository-persistent documentation using repository conventions and linked as part of the plan's completion criteria.
+
 These are planning-time definitions of the tests required for plan completion, not executable test code.
 When requirements or design do not determine an expected outcome, return that ambiguity to its owning workflow.
 Executable test implementation belongs to the testing workflow.
