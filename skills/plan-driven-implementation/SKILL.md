@@ -1,6 +1,6 @@
 ---
 name: plan-driven-implementation
-description: Execute one explicitly selected implementation plan while preserving its boundary, recording the actual result, validating provisional results sufficiently, requiring executable evidence for durable guarantees, and stopping cleanly when the boundary requires replanning.
+description: Execute one explicitly selected implementation plan while preserving its boundary, recording the actual result, auditing completion, and stopping cleanly when the boundary requires replanning.
 ---
 
 # Plan-Driven Implementation
@@ -41,7 +41,7 @@ Its structure is repository-defined, but it should capture the implementation fa
 - provisional decisions that may require later user approval;
 - implementation-time discoveries that materially shaped the final implementation;
 - the actual form of permitted temporary implementation;
-- validation performed and its outcome, including executable test evidence for durable guarantees and other sufficient validation for provisional or intermediate results;
+- validation performed and its outcome;
 - follow-up work.
 
 Reference canonical requirements or design instead of restating them in `result.md`.
@@ -59,13 +59,7 @@ Immediately before completing the selected plan, reread its `plan.md` and audit 
 - implementation constraints that impose requirements on the implementation result;
 - completion criteria.
 
-For every applicable item, confirm concrete implementation evidence and enough validation evidence to judge the current plan complete.
-
-Separate current-result validation from durable regression protection.
-For outcomes the plan establishes as durable guarantees, require executable test evidence for the required guarantee, either through the plan-linked required test or sufficient existing coverage.
-For provisional or intermediate outcomes, use validation appropriate to the current responsibility, such as focused execution, existing tests, temporary tests, or another repository-appropriate check.
-Missing retained executable test evidence alone does not block completion for a provisional or intermediate outcome unless the plan or an applicable repository policy explicitly requires it.
-A temporary test used for current validation does not need to become retained regression coverage solely because the plan completes.
+For every applicable item, confirm concrete implementation evidence and validation evidence.
 
 For behavioral or integration responsibilities, confirm the required path actually works.
 Types, APIs, helpers, and passing test suites may support that evidence; behavioral and integration responsibilities require evidence of the resulting behavior.
