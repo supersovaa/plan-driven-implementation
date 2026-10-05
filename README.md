@@ -15,10 +15,6 @@ Planning validity belongs to `plan-driven-planning`.
 `plan-driven-implementation` begins from a selected plan and established execution readiness.
 `plan-driven-review` independently verifies the implementation outcome.
 
-Plan completion and durable regression guarantees are distinct.
-A completed plan may include provisional or intermediate results that were sufficiently validated for the current boundary.
-Retained executable test evidence is completion-required when the plan establishes the corresponding behavior or contract as a durable guarantee, not merely because the plan completes.
-
 ## Default document convention
 
 When a repository has no established equivalent convention, use semantic work directories such as:
