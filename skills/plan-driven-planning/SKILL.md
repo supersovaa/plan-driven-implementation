@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, distinguishing durable guarantees from provisional results and defining completion-required tests only for durable guarantees, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, allowing required test definitions to be completed at a later pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
@@ -51,35 +51,23 @@ A plan should define, in whatever structure fits the repository:
 - the required behavior of temporary implementation, when a stage will be completed later;
 - settled constraints that materially affect implementation;
 - what the implementer may decide autonomously;
-- completion criteria, distinguishing durable guarantees from provisional or intermediate results and linking required test definitions for each durable guarantee.
+- completion criteria, including the validation obligations that must be satisfied for completion and links to required test definitions when already available.
 
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
-## Separate completion from durable guarantees
+## Complete required test definitions before execution readiness
 
-Plan completion means the selected implementation boundary has been established and sufficiently validated.
-It does not by itself make every completed behavior a permanent regression guarantee.
+During individual plan creation and review, derive and record required test definitions as far as practical.
+Do not reject an otherwise valid plan solely because some required test cases or expected outcomes are not yet recorded.
 
-Within the completion criteria, distinguish:
+Before implementation begins, derive every test case and expected outcome required by the plan's settled completion contract, grounded in settled requirements and design.
+When a coordinating workflow defines a later pre-execution gate, such as fixing a wave of plans for implementation, that gate may own this completeness check.
+Do not establish execution readiness until all required test definitions are recorded in repository-persistent documentation using repository conventions and linked as part of the plan's completion criteria.
 
-- durable guarantees: behavior or contracts this plan establishes as expected to remain protected after completion;
-- provisional or intermediate results: behavior needed to complete the current boundary while later work may replace, refine, or supersede it.
-
-Require retained executable test evidence as a completion condition for durable guarantees.
-Provisional or intermediate results still require enough validation to judge the current plan complete, but complete formal regression coverage is not inherently completion-required.
-Do not classify an outcome as durable merely because it is observable or because the plan will be marked `completed`.
-Derive durability from settled requirements, design, or explicit planning intent.
-
-## Define required tests for durable guarantees before finalizing the plan
-
-Before finalizing a plan, derive every test case and expected outcome required to establish the plan's durable guarantees, grounded in settled requirements and design.
-Do not treat the plan as finalized until all such durable required test definitions are recorded in repository-persistent documentation using repository conventions and linked as part of the plan's completion criteria.
-These are planning-time definitions of the executable evidence required for durable guarantees, not executable test code.
-
-For provisional or intermediate results, record validation constraints or useful test candidates when they materially affect implementation, but do not require a complete formal test definition set merely to finalize the plan.
-When requirements or design do not determine an expected outcome for a durable guarantee, return that ambiguity to its owning workflow.
+These are planning-time definitions of the tests required for plan completion, not executable test code.
+When requirements or design do not determine an expected outcome, return that ambiguity to its owning workflow.
 Executable test implementation belongs to the testing workflow.
 
 ## Ground completion criteria in current responsibilities
@@ -96,8 +84,6 @@ For each deferred stage, state:
 - what full behavior is deferred to later work.
 
 Let the implementer choose the simplest temporary form that satisfies that contract.
-Unless the plan explicitly establishes otherwise, behavior provided only as a temporary implementation for a deferred stage is provisional rather than a durable guarantee.
-It still requires enough validation to show that the current plan boundary works, but retained formal regression coverage is not completion-required solely because the temporary behavior exists.
 When a particular temporary form is already a settled constraint, record it with the other implementation constraints.
 Place the deferred full behavior in separate follow-up work when it is settled enough to plan.
 
