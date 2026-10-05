@@ -13,7 +13,12 @@ Keep general code-review methodology with the normal review workflow.
 Read the current durable plan state before judging the implementation outcome.
 
 For a `completed` plan, verify that the implementation satisfies the plan's purpose, scope, out-of-scope boundaries, constraints, and completion criteria.
-Treat missing behavior or evidence required by the current plan contract as acceptance-blocking.
+Treat missing behavior required by the current plan contract as acceptance-blocking.
+Treat missing validation evidence needed to determine whether current required behavior works as acceptance-blocking.
+
+Treat missing executable test evidence as acceptance-blocking only when the current plan establishes the corresponding behavior or contract as a durable guarantee, including through an explicit completion-required test definition.
+For provisional or intermediate results whose durable guarantee is deferred, report useful retained-test gaps as follow-up feedback rather than blocking acceptance solely on that basis.
+Do not infer a durable guarantee merely from the plan being `completed`.
 
 For a `replan-required` plan, review the attempt as an intentional stopped state.
 Confirm that implementation stopped at the invalidated boundary, `problem.md` records the causal context and boundary impact needed for replanning, and any `result.md` matches what the attempt actually established.
@@ -51,6 +56,7 @@ Identify:
 
 - violations of the plan boundary;
 - state-specific completion or stopped-attempt problems;
+- missing executable evidence for durable guarantees, and non-blocking test gaps for provisional or intermediate results;
 - result records that do not match the implementation or describe it only as plan deviations;
 - canonical documentation that should be synchronized;
 - provisional or newly discovered important decisions requiring user judgment;
