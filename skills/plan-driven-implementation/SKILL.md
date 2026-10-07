@@ -80,6 +80,10 @@ After the completion audit passes:
 - set its durable state to `completed`;
 - leave a coherent completed state containing the result, completed state, and required documentation synchronization.
 
+Completion is independent of merge prerequisites.
+Keep a plan `completed` when its implementation contract is satisfied even if a recorded merge prerequisite is still unmet.
+The surrounding workflow evaluates merge eligibility from the current prerequisite conditions.
+
 Parent plans complete against their own integration-level completion criteria.
 
 ## Stop at an invalidated boundary
