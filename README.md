@@ -44,13 +44,10 @@ Plan state is durable repository state, with these meanings:
 A replacement plan links directly to the immediately preceding plan, while superseded planning bundles remain reachable as history.
 Current canon remains authoritative.
 
-Before implementation starts, planning-time discoveries update the active plan and index directly, including dependency, merge-prerequisite, concurrency-constraint, ordering, placement, and boundary changes.
+Before implementation starts, planning-time discoveries update the active plan and index directly, including dependency, concurrency-constraint, ordering, placement, and boundary changes.
 Once implementation starts, its active plan stays fixed for that attempt.
 Implementation-time discoveries within the existing boundary belong to implementation and its recorded result.
 `result.md` records what the implementation established directly rather than only as deviations from `plan.md`.
 
-Direct dependencies govern implementation readiness from required predecessor results.
-Merge prerequisites govern incorporation eligibility from named repository-observable conditions.
-Concurrency conflicts govern simultaneous execution of independently completable plans.
-Plan completion and incorporation eligibility are separate concerns: completion is durable plan state, while incorporation eligibility is derived from current merge-prerequisite conditions.
-Readiness, blocking, active execution, and incorporation eligibility remain runtime concerns.
+Direct dependencies express required predecessor results. Concurrency conflicts are separate planning metadata: they prevent simultaneous execution of independently completable plans without imposing an execution order or restricting otherwise-permitted implementation choices.
+Transient states such as readiness, blocking, or active execution remain runtime concerns.
