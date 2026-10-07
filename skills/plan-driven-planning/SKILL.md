@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, merge prerequisites, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
@@ -105,22 +105,27 @@ Place the deferred full behavior in separate follow-up work when it is settled e
 
 When the user explicitly decides to defer responsibility from the current plan to later work, treat that decision as one planning transfer.
 Do not trigger this transfer merely because later work appears possible or preferable during planning.
-When the destination is settled enough to plan, update or replan the source plan according to its current state and the planning and replanning rules below, create or update the destination plan, and synchronize the relevant index, direct dependencies, and concurrency constraints in the same coherent change.
+When the destination is settled enough to plan, update or replan the source plan according to its current state and the planning and replanning rules below, create or update the destination plan, and synchronize the relevant index, direct dependencies, merge prerequisites, and concurrency constraints in the same coherent change.
 In a pull-request workflow, keep those transfer edits in the same pull request.
 Do not leave transferred responsibility unowned or ambiguously owned by both plans.
 If the user has decided to defer the responsibility but the destination cannot yet be planned because it depends on a new requirement or design decision, record the deferred responsibility and return that decision to its owning workflow instead of inventing a follow-up plan.
 
-## Record dependencies and concurrency constraints centrally
+## Record dependencies, merge prerequisites, and concurrency constraints centrally
 
 Determine direct plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
 A direct dependency means that one plan requires the established result of another plan before it can be implemented.
 
+When incorporation of a plan's implementation result requires a repository-observable condition in addition to plan completion, record that condition as a merge prerequisite in the nearest common `index.md`.
+Prefer conditions such as another plan reaching a specified durable state.
 Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
+Direct dependencies govern implementation readiness, merge prerequisites govern incorporation eligibility, and concurrency conflicts govern simultaneous execution.
 When two plans remain independently completable but either may change shared implementation in a way that can invalidate the other's implementation assumptions or overlap with its changes, record a concurrency conflict rather than an artificial dependency.
 A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.
 Record the conflict symmetrically or in another repository convention that makes the mutual exclusion unambiguous.
 
-The index should make it possible to identify each current plan, its durable state, its direct dependencies, and its concurrency conflicts.
+The index should make it possible to identify each current plan, its durable state, its direct dependencies, its merge prerequisites, and its concurrency conflicts.
+Plan completion records satisfaction of the implementation contract.
+Incorporation eligibility is derived separately from the current merge-prerequisite conditions.
 
 When upstream planning uses concrete user-facing use cases as its primary units, structure the index with a separate plan table for each use case rather than one table ordered primarily by plan identifier or sequence number.
 Treat plan identifiers and sequence numbers as plan attributes, not as the primary document-grouping axis.
@@ -133,12 +138,12 @@ Use only these durable plan states unless an existing repository convention prov
 - `completed`
 - `replan-required`
 
-Transient execution state and derived readiness remain runtime concerns.
+Transient execution state, derived readiness, and incorporation eligibility remain runtime concerns.
 
 ## Replanning
 
 Before implementation starts, incorporate planning-time discoveries directly into the active plan and its index.
-Dependency changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
+Dependency changes, merge-prerequisite changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
 
 During planning updates and replanning, use discoveries to revise the planning decisions they invalidate while preserving implementation choices left open by settled constraints.
 When a valid replacement plan depends on a new requirement or design decision, return that decision to its owning workflow before planning from it.
