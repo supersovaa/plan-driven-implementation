@@ -53,4 +53,4 @@ Direct dependencies govern implementation readiness from required predecessor re
 Merge prerequisites govern incorporation eligibility from named repository-observable conditions.
 Concurrency conflicts govern simultaneous execution of independently completable plans.
 Plan completion and incorporation eligibility are separate concerns: completion is durable plan state, while incorporation eligibility is derived from current merge-prerequisite conditions.
-Transient states such as readiness, blocking, incorporation eligibility, or active execution remain runtime concerns.
+Readiness, blocking, active execution, and incorporation eligibility remain runtime concerns.
