@@ -115,8 +115,8 @@ If the user has decided to defer the responsibility but the destination cannot y
 Determine direct plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
 A direct dependency means that one plan requires the established result of another plan before it can be implemented.
 Every prerequisite result required by a plan must either already be established or have a planned owner.
-When an unestablished prerequisite result has no planned owner, give it an independently completable implementation boundary under the normal boundary rules.
-Record the dependent plan's direct dependency on the plan that owns that prerequisite result.
+When an unestablished prerequisite result has no planned owner, assign its ownership using the normal implementation-boundary rules.
+When that ownership belongs to a separate plan, record the dependent plan's direct dependency on that plan.
 
 Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
 When two plans remain independently completable but either may change shared implementation in a way that can invalidate the other's implementation assumptions or overlap with its changes, record a concurrency conflict rather than an artificial dependency.
