@@ -125,7 +125,7 @@ Record the conflict symmetrically or in another repository convention that makes
 
 The index should make it possible to identify each current plan, its durable state, its direct dependencies, its merge prerequisites, and its concurrency conflicts.
 Plan completion records satisfaction of the implementation contract.
-Merge eligibility is derived separately from the current merge-prerequisite conditions.
+Incorporation eligibility is derived separately from the current merge-prerequisite conditions.
 
 When upstream planning uses concrete user-facing use cases as its primary units, structure the index with a separate plan table for each use case rather than one table ordered primarily by plan identifier or sequence number.
 Treat plan identifiers and sequence numbers as plan attributes, not as the primary document-grouping axis.
