@@ -5,7 +5,7 @@ description: Create, update, replace, and evaluate small, repository-persistent 
 
 # Plan-Driven Planning
 
-Use this skill after the relevant requirements and design decisions are settled.
+Use this skill after the relevant requirements and design decisions are settled, when creating, revising, replanning, or evaluating an implementation plan for validity.
 Treat those upstream decisions as established inputs.
 
 ## Establish the repository state first
