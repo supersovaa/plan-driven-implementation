@@ -78,11 +78,10 @@ After the completion audit passes:
 - validate the plan;
 - finalize its `result.md`;
 - update relevant canon and indexes so the repository is semantically consistent;
-- set its durable state to `completed`;
+- set its durable state to `completed` from the implementation contract and completion evidence;
 - leave a coherent completed state containing the result, completed state, and required documentation synchronization.
 
-Set a plan to `completed` from its implementation contract and completion evidence.
-The surrounding workflow evaluates merge eligibility separately from the recorded merge-prerequisite conditions.
+The surrounding workflow evaluates merge eligibility from the recorded merge-prerequisite conditions.
 
 Parent plans complete against their own integration-level completion criteria.
 
