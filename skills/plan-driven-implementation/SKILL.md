@@ -19,8 +19,6 @@ Keep the selected plan as the sole implementation boundary for the attempt.
 Adapt implementation details to the current repository as needed.
 A stale implementation assumption may be adapted when it is not a settled plan constraint and the plan's purpose, scope, out-of-scope work, settled constraints, and completion criteria remain valid.
 This may include restructuring implementation established by a dependency or ancestor plan when the selected plan's contract and current canon remain valid.
-Recorded merge prerequisites govern incorporation eligibility.
-Recorded direct dependencies govern implementation readiness, and recorded concurrency conflicts govern simultaneous execution.
 Treat the selected plan as fixed for the attempt.
 Resolve implementation-time discoveries within the existing boundary and record the resulting implementation in `result.md`.
 
@@ -81,7 +79,7 @@ After the completion audit passes:
 - set its durable state to `completed` from the implementation contract and completion evidence;
 - leave a coherent completed state containing the result, completed state, and required documentation synchronization.
 
-The surrounding workflow evaluates incorporation eligibility from the recorded merge-prerequisite conditions.
+The surrounding workflow derives incorporation eligibility from the recorded merge-prerequisite conditions.
 
 Parent plans complete against their own integration-level completion criteria.
 
