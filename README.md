@@ -49,5 +49,8 @@ Once implementation starts, its active plan stays fixed for that attempt.
 Implementation-time discoveries within the existing boundary belong to implementation and its recorded result.
 `result.md` records what the implementation established directly rather than only as deviations from `plan.md`.
 
-Direct dependencies express required predecessor results. Concurrency conflicts are separate planning metadata: they prevent simultaneous execution of independently completable plans without imposing an execution order or restricting otherwise-permitted implementation choices.
-Transient states such as readiness, blocking, or active execution remain runtime concerns.
+Direct dependencies express required predecessor results and gate implementation.
+Merge prerequisites are separate planning metadata: a plan may be implemented and become `completed` while its result waits for a named repository-observable condition before incorporation.
+Concurrency conflicts prevent simultaneous execution of independently completable plans without imposing an execution order or restricting otherwise-permitted implementation choices.
+Merge eligibility is derived from merge prerequisites, so an unmet prerequisite does not create another durable plan state.
+Transient states such as readiness, blocking, merge eligibility, or active execution remain runtime concerns.
