@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, merge prerequisites, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
@@ -110,17 +110,21 @@ In a pull-request workflow, keep those transfer edits in the same pull request.
 Do not leave transferred responsibility unowned or ambiguously owned by both plans.
 If the user has decided to defer the responsibility but the destination cannot yet be planned because it depends on a new requirement or design decision, record the deferred responsibility and return that decision to its owning workflow instead of inventing a follow-up plan.
 
-## Record dependencies and concurrency constraints centrally
+## Record dependencies, merge prerequisites, and concurrency constraints centrally
 
 Determine direct plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
 A direct dependency means that one plan requires the established result of another plan before it can be implemented.
 
-Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
+Also determine merge prerequisites and known concurrency constraints between plans and record them in the nearest common `index.md`.
+A merge prerequisite means that a plan may be implemented and may reach `completed`, but its implementation result is incorporated only after a named prerequisite condition is satisfied.
+Prefer conditions that can be evaluated from repository state, such as another plan reaching a specified durable state.
+Treat merge prerequisites as integration gating, not implementation dependencies: they do not prevent the gated plan or later independently executable plans from being implemented.
 When two plans remain independently completable but either may change shared implementation in a way that can invalidate the other's implementation assumptions or overlap with its changes, record a concurrency conflict rather than an artificial dependency.
 A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.
 Record the conflict symmetrically or in another repository convention that makes the mutual exclusion unambiguous.
 
-The index should make it possible to identify each current plan, its durable state, its direct dependencies, and its concurrency conflicts.
+The index should make it possible to identify each current plan, its durable state, its direct dependencies, its merge prerequisites, and its concurrency conflicts.
+A `completed` plan remains `completed` while a merge prerequisite is unmet; merge eligibility is derived from the current prerequisite conditions rather than stored as another durable plan state.
 
 When upstream planning uses concrete user-facing use cases as its primary units, structure the index with a separate plan table for each use case rather than one table ordered primarily by plan identifier or sequence number.
 Treat plan identifiers and sequence numbers as plan attributes, not as the primary document-grouping axis.
@@ -138,7 +142,7 @@ Transient execution state and derived readiness remain runtime concerns.
 ## Replanning
 
 Before implementation starts, incorporate planning-time discoveries directly into the active plan and its index.
-Dependency changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
+Dependency changes, merge-prerequisite changes, concurrency-constraint changes, ordering changes, document moves, and boundary adjustments found before execution are ordinary planning updates and keep the plan `planned`.
 
 During planning updates and replanning, use discoveries to revise the planning decisions they invalidate while preserving implementation choices left open by settled constraints.
 When a valid replacement plan depends on a new requirement or design decision, return that decision to its owning workflow before planning from it.
