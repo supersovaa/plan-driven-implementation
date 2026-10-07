@@ -81,7 +81,7 @@ After the completion audit passes:
 - set its durable state to `completed` from the implementation contract and completion evidence;
 - leave a coherent completed state containing the result, completed state, and required documentation synchronization.
 
-The surrounding workflow evaluates merge eligibility from the recorded merge-prerequisite conditions.
+The surrounding workflow evaluates incorporation eligibility from the recorded merge-prerequisite conditions.
 
 Parent plans complete against their own integration-level completion criteria.
 
