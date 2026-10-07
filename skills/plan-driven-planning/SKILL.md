@@ -1,6 +1,6 @@
 ---
 name: plan-driven-planning
-description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design while preserving those upstream decisions, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design while preserving those upstream decisions, including plan-validity review, with explicit boundaries, dependencies, concurrency constraints, validation obligations, and durable state.
 ---
 
 # Plan-Driven Planning
@@ -88,18 +88,19 @@ A planning finding exists when that trace exposes an ownership, dependency, stag
 For staged work, evaluate temporary behavior against the stage that owns it and trace deferred full behavior to its planned owner.
 Treat current repository examples, fixtures, and registered data as baseline context, and evaluate validation against the planned completion contract, including planned fixtures or test data when the contract requires them.
 
-## Audit required test definitions before execution readiness
+## Link settled test evidence definitions before execution readiness
 
-Required test definitions may be recorded during plan creation when they are already known.
-Individual plan review does not audit whether every required test case and expected outcome has been recorded.
+Required test definitions may already exist during plan creation.
+Link applicable definitions from the plan's completion criteria when they are available.
 
-Before implementation begins, audit the plan's settled completion contract and derive every required test case and expected outcome, grounded in settled requirements and design.
-When a coordinating workflow defines a later pre-execution gate, such as fixing a wave of plans for implementation, that gate owns this completeness audit.
-Do not establish execution readiness until all required test definitions are recorded in repository-persistent documentation using repository conventions and linked as part of the plan's completion criteria.
+`test-evidence-planning` owns deriving the complete set of required test cases, expected outcomes, coverage decisions, regression scope, validation methods, and test-support constraints from settled requirements and design.
+Use the plan's settled implementation boundary and completion contract as input to that planning responsibility.
+Do not derive or complete required test definitions inside implementation planning.
 
-These are planning-time definitions of the tests required for plan completion, not executable test code.
-When requirements or design do not determine an expected outcome, return that ambiguity to its owning workflow.
-Executable test implementation belongs to the testing workflow.
+Before implementation begins, require the applicable test-evidence planning result to be complete, recorded in repository-persistent documentation using repository conventions, and linked from the plan's completion criteria.
+When a coordinating workflow defines a later pre-execution gate, such as fixing a wave of plans for implementation, that gate may invoke or require `test-evidence-planning` before establishing readiness.
+
+Executable test implementation belongs to `test-evidence-implementation`.
 
 ## Ground completion criteria in current responsibilities
 
