@@ -57,6 +57,22 @@ Reference canonical requirements and design instead of copying them into the pla
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
 
+## Review plans through owned deltas
+
+When evaluating an implementation plan before execution, establish five linked views:
+
+- the relevant repository baseline;
+- the target behavior and responsibilities established by settled requirements and design;
+- the implementation delta from that baseline to the target;
+- the plan or stage that owns each part of that delta;
+- the validation obligation that demonstrates the owned delta at completion.
+
+Classify limitations observed in the current repository as baseline facts.
+Evaluate plan quality by tracing every required delta to a concrete owner and its completion evidence.
+A planning finding exists when that trace exposes an ownership, dependency, staging, or validation gap.
+For staged work, evaluate temporary behavior against the stage that owns it and trace deferred full behavior to its planned owner.
+Use repository examples, fixtures, and registered data as validation inputs according to the completion contract established by the plan.
+
 ## Audit required test definitions before execution readiness
 
 Required test definitions may be recorded during plan creation when they are already known.
