@@ -1,12 +1,26 @@
 ---
 name: plan-driven-planning
-description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design while preserving those upstream decisions, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
 
 Use this skill after the relevant requirements and design decisions are settled, when creating, revising, replanning, or evaluating an implementation plan for validity.
 Treat those upstream decisions as established inputs.
+Project them into implementation work rather than reopening them during planning.
+
+## Preserve settled design provenance
+
+Project settled requirements and design into implementation work.
+When they already support a coherent implementation plan, use them as-is.
+
+Require every design-significant responsibility, boundary, structure, interface, and behavior decision reflected in the plan to come from settled requirements, settled design, or an already-established repository responsibility or behavior.
+Derive planning decisions such as implementation boundaries, dependencies, concurrency constraints, and completion criteria from those established inputs.
+
+When multiple design alternatives remain compatible with the established inputs, return the design choice to its owning workflow when it must be settled upstream, or leave implementation mechanics to the implementation phase when the plan does not need that choice.
+Keep an already-workable settled design unchanged when a preferable alternative appears during planning.
+
+When a coherent plan cannot be formed without adding or changing a design decision, identify that unresolved decision and return it to its owning workflow before continuing the dependent planning.
 
 ## Establish the repository state first
 
