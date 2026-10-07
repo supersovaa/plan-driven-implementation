@@ -1,11 +1,11 @@
 ---
 name: plan-driven-planning
-description: Create, update, or replace small, repository-persistent implementation plans from already-settled requirements and design, deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
+description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design, including plan-validity review, while deferring the completeness audit of required test definitions to a pre-execution readiness gate, with explicit boundaries, dependencies, concurrency constraints, and durable state.
 ---
 
 # Plan-Driven Planning
 
-Use this skill after the relevant requirements and design decisions are settled.
+Use this skill after the relevant requirements and design decisions are settled, when creating, revising, replanning, or evaluating an implementation plan for validity.
 Treat those upstream decisions as established inputs.
 
 ## Establish the repository state first
@@ -56,6 +56,22 @@ A plan should define, in whatever structure fits the repository:
 Reference canonical requirements and design instead of copying them into the plan.
 Prescribe files, types, functions, algorithms, or implementation order only when those details are already settled constraints.
 The plan defines what must be established and the boundary of the work; implementation mechanics belong to the implementation phase.
+
+## Review plans through owned deltas
+
+When evaluating an implementation plan before execution, establish five linked views:
+
+- the relevant repository baseline;
+- the target behavior and responsibilities established by settled requirements and design;
+- the implementation delta from that baseline to the target;
+- the plan or stage that owns each part of that delta;
+- the validation obligation that demonstrates the owned delta at completion.
+
+Classify limitations observed in the current repository as baseline facts.
+Evaluate plan quality by tracing every required delta to a concrete owner, completion criterion, and validation obligation.
+A planning finding exists when that trace exposes an ownership, dependency, staging, or validation gap.
+For staged work, evaluate temporary behavior against the stage that owns it and trace deferred full behavior to its planned owner.
+Treat current repository examples, fixtures, and registered data as baseline context, and evaluate validation against the planned completion contract, including planned fixtures or test data when the contract requires them.
 
 ## Audit required test definitions before execution readiness
 
@@ -146,5 +162,5 @@ Return the current plan to `planned` in the same change.
 When this skill adds, deletes, moves, or renames implementation planning documents, update the relevant `index.md` in the same change.
 Add links when their target documents exist.
 
-This skill owns implementation planning and replanning semantics.
-Execution and review belong to their respective skills.
+This skill owns implementation planning, replanning, and plan-validity review semantics.
+Execution and implementation-outcome review belong to their respective skills.
