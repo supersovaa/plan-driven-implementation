@@ -147,7 +147,7 @@ Reserve `replan-required` and `problem.md` for a plan boundary invalidated after
 
 When the stopped attempt reveals that completing the work requires a prerequisite result outside the invalidated boundary, propose replacement work that depends directly on the work establishing that prerequisite result.
 Preserve the stopped attempt and any usable implementation result as history and replanning input.
-Create separate prerequisite work when that prerequisite has its own independently completable boundary, then make the replacement plan directly depend on it.
+Use existing planned work when it already owns that prerequisite result. Otherwise, create separate prerequisite work when the prerequisite has its own independently completable boundary, then make the replacement plan directly depend on that work.
 Let the repository's work-number workflow preserve the earlier work number and assign the replacement work according to its replanning rules.
 
 When planning is invoked for a `replan-required` plan, treat its current `plan.md` and `problem.md` as required context.
