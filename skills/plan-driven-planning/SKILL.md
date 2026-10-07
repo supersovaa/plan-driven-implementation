@@ -115,9 +115,9 @@ If the user has decided to defer the responsibility but the destination cannot y
 Determine direct plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
 A direct dependency means that one plan requires the established result of another plan before it can be implemented.
 
-Also determine merge prerequisites and known concurrency constraints between plans and record them in the nearest common `index.md`.
-A merge prerequisite defines the condition that makes a plan's implementation result eligible for incorporation.
-Prefer conditions that can be evaluated from repository state, such as another plan reaching a specified durable state.
+When incorporation of a plan's implementation result requires a repository-observable condition in addition to plan completion, record that condition as a merge prerequisite in the nearest common `index.md`.
+Prefer conditions such as another plan reaching a specified durable state.
+Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
 Direct dependencies govern implementation readiness, merge prerequisites govern incorporation eligibility, and concurrency conflicts govern simultaneous execution.
 When two plans remain independently completable but either may change shared implementation in a way that can invalidate the other's implementation assumptions or overlap with its changes, record a concurrency conflict rather than an artificial dependency.
 A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.
@@ -138,7 +138,7 @@ Use only these durable plan states unless an existing repository convention prov
 - `completed`
 - `replan-required`
 
-Transient execution state and derived readiness remain runtime concerns.
+Transient execution state, derived readiness, and incorporation eligibility remain runtime concerns.
 
 ## Replanning
 
