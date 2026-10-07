@@ -14,7 +14,7 @@ Read the current durable plan state before judging the implementation outcome.
 
 For a `completed` plan, verify that the implementation satisfies the plan's purpose, scope, out-of-scope boundaries, constraints, and completion criteria.
 Treat missing behavior or evidence required by the current plan contract as acceptance-blocking.
-Treat an unmet merge prerequisite as an integration gate on an otherwise completed plan, not as missing implementation or a reason to change its durable state.
+Evaluate implementation completion from the plan contract and evaluate incorporation eligibility from the recorded merge prerequisites.
 
 For a `replan-required` plan, review the attempt as an intentional stopped state.
 Confirm that implementation stopped at the invalidated boundary, `problem.md` records the causal context and boundary impact needed for replanning, and any `result.md` matches what the attempt actually established.
