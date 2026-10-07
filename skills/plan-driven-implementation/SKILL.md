@@ -87,6 +87,7 @@ Parent plans complete against their own integration-level completion criteria.
 
 When the plan boundary becomes invalid, stop implementation against that plan.
 Record the causal context in `problem.md`, set the plan to `replan-required`, and finish the attempt as a coherent stopped state.
+When the boundary failed because completion requires a newly discovered prerequisite result outside the current plan, record that prerequisite result and why it is required so replanning can establish separate prerequisite work and replacement work with a direct dependency.
 
 Create or update `result.md` when the attempt produced an execution result.
 A replanning requirement by itself does not create an execution result.
