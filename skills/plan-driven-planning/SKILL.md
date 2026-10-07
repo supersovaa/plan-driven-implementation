@@ -14,8 +14,9 @@ Project them into implementation work rather than reopening them during planning
 Project settled requirements and design into implementation work.
 When they already support a coherent implementation plan, use them as-is.
 
-Require every design-significant responsibility, boundary, structure, interface, and behavior decision reflected in the plan to come from settled requirements, settled design, or an already-established repository responsibility or behavior.
-Derive planning decisions such as implementation boundaries, dependencies, concurrency constraints, and completion criteria from those established inputs.
+Require every design-significant responsibility, boundary, structure, interface, and behavior decision reflected in the plan to be established by settled requirements or settled design.
+Treat current repository responsibilities and behavior as baseline facts for mapping those established decisions onto implementation, not as authority to add or change design.
+Derive planning decisions such as implementation boundaries, dependencies, concurrency constraints, and completion criteria from those established inputs and baseline facts.
 
 When multiple design alternatives remain compatible with the established inputs, return the design choice to its owning workflow when it must be settled upstream, or leave implementation mechanics to the implementation phase when the plan does not need that choice.
 Keep an already-workable settled design unchanged when a preferable alternative appears during planning.
@@ -102,8 +103,9 @@ Executable test implementation belongs to the testing workflow.
 
 ## Ground completion criteria in current responsibilities
 
-Derive the current plan and its completion criteria from concrete responsibilities that can be established and validated within that plan once its direct dependencies are satisfied.
-When another concrete use case or implementation path introduces overlapping responsibilities, extract the responsibility they actually share and generalize only as far as those concrete cases require.
+Derive the current plan and its completion criteria from concrete responsibilities established by settled requirements and design that can be implemented and validated within that plan once its direct dependencies are satisfied.
+When another concrete use case or implementation path overlaps with the current work, use a shared responsibility when settled requirements or design already establish it.
+When satisfying both cases requires a new or generalized responsibility, return that design decision to its owning workflow before planning from it.
 
 ## Plan deferred stages explicitly
 
