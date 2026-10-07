@@ -81,14 +81,13 @@ After the completion audit passes:
 - set its durable state to `completed` from the implementation contract and completion evidence;
 - leave a coherent completed state containing the result, completed state, and required documentation synchronization.
 
-The surrounding workflow derives incorporation eligibility from the recorded merge-prerequisite conditions.
-
 Parent plans complete against their own integration-level completion criteria.
 
 ## Stop at an invalidated boundary
 
 When the plan boundary becomes invalid, stop implementation against that plan.
 Record the causal context in `problem.md`, set the plan to `replan-required`, and finish the attempt as a coherent stopped state.
+When the boundary failed because completion requires a newly discovered prerequisite result outside the current plan, record that prerequisite result and why it is required so planning can replan the remaining work from that constraint.
 
 Create or update `result.md` when the attempt produced an execution result.
 A replanning requirement by itself does not create an execution result.
