@@ -116,15 +116,16 @@ Determine direct plan dependencies and record them in the nearest common `index.
 A direct dependency means that one plan requires the established result of another plan before it can be implemented.
 
 Also determine merge prerequisites and known concurrency constraints between plans and record them in the nearest common `index.md`.
-A merge prerequisite means that a plan may be implemented and may reach `completed`, but its implementation result is incorporated only after a named prerequisite condition is satisfied.
+A merge prerequisite defines the condition that makes a plan's implementation result eligible for incorporation.
 Prefer conditions that can be evaluated from repository state, such as another plan reaching a specified durable state.
-Treat merge prerequisites as integration gating, not implementation dependencies: they do not prevent the gated plan or later independently executable plans from being implemented.
+Direct dependencies govern implementation readiness, merge prerequisites govern incorporation eligibility, and concurrency conflicts govern simultaneous execution.
 When two plans remain independently completable but either may change shared implementation in a way that can invalidate the other's implementation assumptions or overlap with its changes, record a concurrency conflict rather than an artificial dependency.
 A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.
 Record the conflict symmetrically or in another repository convention that makes the mutual exclusion unambiguous.
 
 The index should make it possible to identify each current plan, its durable state, its direct dependencies, its merge prerequisites, and its concurrency conflicts.
-A `completed` plan remains `completed` while a merge prerequisite is unmet; merge eligibility is derived from the current prerequisite conditions rather than stored as another durable plan state.
+Plan completion records satisfaction of the implementation contract.
+Merge eligibility is derived separately from the current merge-prerequisite conditions.
 
 When upstream planning uses concrete user-facing use cases as its primary units, structure the index with a separate plan table for each use case rather than one table ordered primarily by plan identifier or sequence number.
 Treat plan identifiers and sequence numbers as plan attributes, not as the primary document-grouping axis.
