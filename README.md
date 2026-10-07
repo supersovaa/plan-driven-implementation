@@ -14,6 +14,7 @@ Later phases treat established outputs of earlier phases as inputs instead of re
 Planning validity belongs to `plan-driven-planning`.
 `plan-driven-implementation` begins from a selected plan and established execution readiness.
 `plan-driven-review` independently verifies the implementation outcome.
+Required test cases, expected outcomes, and other test-evidence planning decisions belong to `test-evidence-planning`; implementation plans link its settled output before execution readiness.
 
 ## Default document convention
 
