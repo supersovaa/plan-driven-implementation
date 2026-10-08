@@ -16,6 +16,12 @@ Planning validity belongs to `plan-driven-planning`.
 `plan-driven-review` independently verifies the implementation outcome.
 Required test cases, expected outcomes, and other test-evidence planning decisions belong to `test-evidence-planning`; implementation plans link its settled output before execution readiness.
 
+## Skill setup
+
+Install the three skills listed above using the target agent's skill installation mechanism.
+Before establishing execution readiness for an implementation plan, make the external [`test-evidence-planning`](https://github.com/supersovaa/requirement-driven-testing/blob/main/skills/planning/SKILL.md) skill available and ensure its required planning result is complete, persisted, and linked from the plan's completion criteria.
+This is a condition for execution readiness, not for starting implementation planning.
+
 ## Default document convention
 
 When a repository has no established equivalent convention, use semantic work directories such as:
