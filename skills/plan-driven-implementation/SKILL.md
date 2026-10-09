@@ -14,6 +14,9 @@ Before changing implementation code, read the selected `plan.md`, the `index.md`
 Treat the current plan and current canon as authoritative for this attempt.
 Keep the selected plan as the sole implementation boundary for the attempt.
 
+When changing durable plan state on completion or stopping, update its existing authoritative state entry.
+Refer to that entry for current progress and keep attempt-specific outcomes in `result.md` or `problem.md` as historical evidence.
+
 ## Preserve the plan boundary
 
 Adapt implementation details to the current repository as needed.
