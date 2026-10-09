@@ -147,6 +147,10 @@ Treat plan identifiers and sequence numbers as plan attributes, not as the prima
 If one plan is relevant to multiple use cases, it may be referenced from each relevant use-case table.
 Keep mutable plan metadata, especially durable state, authoritative in one canonical entry and use references from the other use-case tables instead of duplicating that state.
 
+When creating, revising, replanning, or reviewing planning documents, identify the authoritative record for each current planning fact.
+Treat progress counts, completed-plan lists, wave status, and other current summaries as references to or derived views of those records, instead of independently maintained copies.
+Keep dated decisions, audits, and completed or superseded plans as historical evidence of their own time, distinct from current status.
+
 Use only these durable plan states unless an existing repository convention provides an equivalent model:
 
 - `planned`
