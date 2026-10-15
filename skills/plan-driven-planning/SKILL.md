@@ -30,7 +30,8 @@ Treat that branch as the source of confirmed plan state.
 
 Use repository conventions when they already define where implementation plans live and how they are indexed.
 Otherwise, prefer semantic work directories under `docs/implementation/`.
-For each plan with its own directory, record its durable state in that directory's `index.md`; an existing repository convention may provide an equivalent plan-local authoritative record.
+For each new or active plan with its own directory, record its durable state in that directory's `index.md`; an existing repository convention may provide an equivalent plan-local authoritative record.
+Keep already-completed plans in their established authoritative historical records when adopting this convention requires no other change to them.
 Keep shared indexes responsible for navigation and relationships rather than repeating independently changing plan states.
 Prefer semantic identity over dates or sequence numbers for work units.
 
