@@ -137,6 +137,7 @@ When that ownership belongs to a separate plan, record the dependent plan's dire
 
 Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
 Assess potential interference at the narrowest concrete shared responsibility, interface, data contract, or intended edit supported by the plans and current repository facts.
+When plans use shared data under distinct contracts, identify each use's settled representation and conversion responsibility, then assess possible interference with implementation or validation assumptions.
 Sharing a file, type, module, or dependency does not alone establish a conflict; evaluate whether simultaneous changes can plausibly invalidate another plan's edits, required behavior, implementation assumptions, or verification.
 When independently completable plans have such concrete interference, record a concurrency conflict rather than an artificial dependency.
 A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.

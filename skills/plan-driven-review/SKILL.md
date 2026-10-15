@@ -29,6 +29,7 @@ Use subsequent plans or explicit deferred-work records as needed to confirm the 
 
 When the current plan adds another path to a responsibility already present in repository state, compare the new path with existing paths that establish the same responsibility.
 Treat semantic differences within the current plan's required behavior, including relevant boundary conditions, as current-boundary review findings.
+For each affected use, compare implementation behavior and validation evidence against its settled contract, including any distinct data representation or conversion; an incidental internal representation does not establish that contract.
 
 Keep plan-relative robustness, observability, or future-stage improvements beyond the current contract as follow-up feedback.
 Apply normal code-review acceptance criteria independently.
