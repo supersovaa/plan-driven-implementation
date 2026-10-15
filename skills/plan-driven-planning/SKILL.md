@@ -30,6 +30,9 @@ Treat that branch as the source of confirmed plan state.
 
 Use repository conventions when they already define where implementation plans live and how they are indexed.
 Otherwise, prefer semantic work directories under `docs/implementation/`.
+For each new or active plan with its own directory, record its durable state in that directory's `index.md`; an existing repository convention may provide an equivalent plan-local authoritative record.
+Keep already-completed plans in their established authoritative historical records when adopting this convention requires no other change to them.
+Keep shared indexes responsible for navigation and relationships rather than repeating independently changing plan states.
 Prefer semantic identity over dates or sequence numbers for work units.
 
 ## Consider prerequisite refactoring
@@ -143,14 +146,16 @@ When independently completable plans have such concrete interference, record a c
 A concurrency conflict prevents the related plans from executing simultaneously; it does not impose an execution order or make either plan depend on the other's result.
 Record the conflict symmetrically or in another repository convention that makes the mutual exclusion unambiguous.
 
-The index should make it possible to identify each current plan, its durable state, its direct dependencies, and its concurrency conflicts.
+A shared index should identify each current plan, link to its authoritative plan-local state, and record the direct dependencies and concurrency conflicts among the plans it relates to.
+A plan-local index should identify the plan's durable state and link its planning and result documents.
 
-When upstream planning uses concrete user-facing use cases as its primary units, structure the index with a separate plan table for each use case rather than one table ordered primarily by plan identifier or sequence number.
+When upstream planning uses concrete user-facing use cases as its primary units, structure the shared index with a separate plan table for each use case rather than one table ordered primarily by plan identifier or sequence number.
 Treat plan identifiers and sequence numbers as plan attributes, not as the primary document-grouping axis.
 If one plan is relevant to multiple use cases, it may be referenced from each relevant use-case table.
-Keep mutable plan metadata, especially durable state, authoritative in one canonical entry and use references from the other use-case tables instead of duplicating that state.
+Refer to its authoritative plan-local state from every use-case table instead of maintaining mutable status copies.
 
 When creating, revising, replanning, or evaluating implementation plans, identify the authoritative record for each current planning fact.
+Update a plan's durable state in its own authoritative record. Update a shared index when navigation, plan membership, dependencies, or concurrency constraints actually change, not solely because an individual plan changes state.
 Treat progress counts, completed-plan lists, wave status, and other current summaries as references to or derived views of those records, instead of independently maintained copies.
 Keep dated decisions, audits, and completed or superseded plans as historical evidence of their own time, distinct from current status.
 

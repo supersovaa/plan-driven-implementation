@@ -10,7 +10,9 @@ Keep general code-review methodology with the normal review workflow.
 
 ## Review according to plan state
 
-Read the current durable plan state before judging the implementation outcome.
+Read the current durable plan state from the selected plan's authoritative plan-local record before judging the implementation outcome.
+For an already-completed plan retained under an earlier repository convention, read its existing authoritative historical state record instead.
+Read shared indexes as needed for dependencies and concurrency constraints; when the plan has an authoritative plan-local state record, treat any shared status summaries as derived references rather than competing state records.
 
 For a `completed` plan, verify that the implementation satisfies the plan's purpose, scope, out-of-scope boundaries, constraints, and completion criteria.
 Treat missing behavior or evidence required by the current plan contract as acceptance-blocking.

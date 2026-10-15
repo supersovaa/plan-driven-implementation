@@ -10,12 +10,13 @@ Begin from the selected plan and established execution readiness.
 
 ## Read the implementation contract
 
-Before changing implementation code, read the selected `plan.md`, the `index.md` that owns its state, referenced requirement and design canon, and relevant repository-level implementation rules.
+Before changing implementation code, read the selected `plan.md`, its plan-local `index.md` (or equivalent authoritative state record), relevant shared indexes for dependencies and concurrency constraints, referenced requirement and design canon, and relevant repository-level implementation rules.
 Treat the current plan and current canon as authoritative for this attempt.
 Keep the selected plan as the sole implementation boundary for the attempt.
 
-When changing durable plan state on completion or stopping, update its existing authoritative state entry.
-Refer to that entry for current progress and keep attempt-specific outcomes in `result.md` or `problem.md` as historical evidence.
+When changing durable plan state on completion or stopping, update its existing authoritative plan-local state entry.
+Do not rewrite shared plan lists or ancestor indexes solely to reflect that state change; update them when their own navigation or relationship facts change.
+Refer to the plan-local entry for current progress and keep attempt-specific outcomes in `result.md` or `problem.md` as historical evidence.
 
 ## Preserve the plan boundary
 
