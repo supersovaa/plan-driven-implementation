@@ -39,6 +39,8 @@ docs/implementation/<work-name>/
         └── problem.md
 ```
 
+Each work directory's `index.md` is the authoritative record of that plan's durable state (`planned`, `completed`, or `replan-required`). Shared/ancestor indexes link to those records and own plan-to-plan dependencies, concurrency constraints, and navigation. They do not repeat mutable plan states. Completing or stopping one plan therefore updates its own index, without editing a shared index unless shared relationships or document structure also change.
+
 Existing repository conventions take precedence when they express the same roles clearly.
 
 Plan state is durable repository state, with these meanings:
