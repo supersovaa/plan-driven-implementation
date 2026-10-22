@@ -20,7 +20,8 @@ Refer to the plan-local entry for current progress and keep attempt-specific out
 
 ## Preserve the plan boundary
 
-Adapt implementation details to the current repository as needed.
+Adapt implementation details to the current repository by comparing any new execution path with existing paths that fulfill the same responsibility, including the decisions and coordination around shared lower-level APIs.
+Before introducing path-specific handling for differing requirements, design, or execution constraints, determine whether those differences can be accommodated by the existing responsibility through reuse or restructuring within the selected plan boundary; keep shared behavior in one coherent implementation and separate only what cannot be accommodated there.
 A stale implementation assumption may be adapted when it is not a settled plan constraint and the plan's purpose, scope, out-of-scope work, settled constraints, and completion criteria remain valid.
 This may include restructuring implementation established by a dependency or ancestor plan when the selected plan's contract and current canon remain valid.
 Recorded concurrency conflicts govern which plans may execute simultaneously.
