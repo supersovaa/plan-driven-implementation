@@ -14,7 +14,7 @@ Project them into implementation work rather than reopening them during planning
 Project settled requirements and design into implementation work.
 When they already support a coherent implementation plan, use them as-is.
 
-Require every design-significant responsibility, boundary, structure, interface, and behavior decision reflected in the plan to be established by settled requirements or settled design.
+Require every design-significant responsibility, boundary, structure, interface, and behavior decision reflected in the plan—including failure guarantees such as rollback, restoration, or unchanged state in completion criteria or referenced test expectations—to be established by settled requirements or settled design.
 Treat current repository responsibilities and behavior as baseline facts for mapping those established decisions onto implementation, not as authority to add or change design.
 Derive planning decisions such as implementation boundaries, dependencies, concurrency constraints, and completion criteria from those established inputs and baseline facts.
 
