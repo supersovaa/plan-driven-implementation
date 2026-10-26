@@ -21,6 +21,7 @@ Required test cases, expected outcomes, and other test-evidence planning decisio
 Install the three skills listed above using the target agent's skill installation mechanism.
 Before establishing execution readiness for an implementation plan, make the external [`test-evidence-planning`](https://github.com/supersovaa/requirement-driven-testing/blob/main/skills/planning/SKILL.md) skill available and ensure its required planning result is complete, persisted, and linked from the plan's completion criteria.
 This is a condition for execution readiness, not for starting implementation planning.
+When an implementation task runs or reruns repeated complete games, simulations, episodes, or other trial-based end-to-end verification, also apply [`test-execution-budget`](https://github.com/supersovaa/requirement-driven-testing/blob/main/skills/execution/SKILL.md) before launching that work.
 
 ## Default document convention
 
