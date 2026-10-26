@@ -35,6 +35,11 @@ If no project policy exists, use a conservative default: design canon may be upd
 
 When completing the work requires changing the plan's purpose, scope, out-of-scope work, settled constraints, or completion criteria, move the plan to `replan-required`.
 
+## Bound repeated validation
+
+Before executing or rerunning tests that launch repeated complete games, simulations, episodes, or other costly end-to-end trials, apply [`test-execution-budget`](https://github.com/supersovaa/requirement-driven-testing/blob/main/skills/execution/SKILL.md) to the complete run, including indirect trial counts and retries.
+The selected plan defines required verification; the execution budget governs autonomous resource expenditure.
+
 ## Record what actually happened
 
 Create or update `result.md` when an execution result exists.
