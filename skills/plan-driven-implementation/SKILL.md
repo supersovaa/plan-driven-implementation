@@ -37,7 +37,7 @@ When completing the work requires changing the plan's purpose, scope, out-of-sco
 
 ## Choose and bound real-trial validation
 
-Before executing or rerunning any real complete game, simulation, episode, or similarly costly end-to-end trial for verification, apply [`test-execution-budget`](https://github.com/supersovaa/requirement-driven-testing/blob/main/skills/execution/SKILL.md) to establish whether real trials are necessary, choose sufficient zero-trial evidence where possible, and bound justified runs including indirect trial counts and retries.
+When selecting or executing verification that may launch real complete games, simulations, episodes, or similarly costly end-to-end trials, apply [`test-execution-budget`](https://github.com/supersovaa/requirement-driven-testing/blob/main/skills/execution/SKILL.md) before selecting commands to establish whether complete trials are necessary, choose sufficient zero-trial evidence where possible, and bound all trial attempts including indirect runs and retries.
 The selected plan defines required verification; the execution budget governs autonomous resource expenditure.
 
 ## Record what actually happened
