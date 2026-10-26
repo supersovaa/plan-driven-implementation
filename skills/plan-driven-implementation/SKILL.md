@@ -35,6 +35,11 @@ If no project policy exists, use a conservative default: design canon may be upd
 
 When completing the work requires changing the plan's purpose, scope, out-of-scope work, settled constraints, or completion criteria, move the plan to `replan-required`.
 
+## Choose and bound real-trial validation
+
+When selecting or executing verification that may launch real complete games, simulations, episodes, or similarly costly end-to-end trials, apply [`test-execution-budget`](https://github.com/supersovaa/requirement-driven-testing/blob/main/skills/execution/SKILL.md) before selecting commands to establish whether complete trials are necessary, choose sufficient zero-trial evidence where possible, and bound all trial attempts including indirect runs and retries.
+The selected plan defines required verification; the execution budget governs autonomous resource expenditure.
+
 ## Record what actually happened
 
 Create or update `result.md` when an execution result exists.
