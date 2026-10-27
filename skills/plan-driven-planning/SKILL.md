@@ -141,11 +141,13 @@ If the user has decided to defer the responsibility but the destination cannot y
 ## Record dependencies and concurrency constraints centrally
 
 Evaluate prerequisite results against the latest relevant base branch.
-When a prerequisite is already established there, reference its current requirements/design canon and verified repository behavior as the baseline. Its completed producing plan remains available as historical evidence rather than an active plan dependency.
-When a prerequisite still needs to be established, identify its producing work and record a direct dependency on the pending plan in the nearest common `index.md`. A result recorded as completed but awaiting integration into the relevant base branch remains a prerequisite for execution until that result is available there.
-Every prerequisite result required by a plan must either be established on the relevant base branch or have a planned owner and an explicit path to availability.
+A direct plan dependency means that one plan requires a result still owned by another pending implementation plan before it can begin.
+When a prerequisite is already established on that base branch, reference its current requirements/design canon and verified repository behavior as the baseline. Retain its completed producing plan as historical evidence when useful.
+When a prerequisite must still be implemented by another plan, record the direct dependency on that producing plan in their nearest common `index.md`.
+When a completed plan's result still awaits integration into the relevant base branch, track the required integration explicitly and confirm availability before dependent implementation; the completed plan remains historical evidence of the result.
+Every prerequisite result required by a plan must be established on the relevant base branch, owned by pending implementation work, or have an explicit integration path.
 When an unestablished prerequisite has no planned owner, assign ownership using the normal implementation-boundary rules and record a direct dependency when it belongs to a separate plan.
-When revising the affected planning index, express dependencies still pending for current work while retaining completed plan records as navigable history.
+When revising the affected planning index, keep active dependencies on pending work and preserve completed plan records as navigable history.
 
 Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
 Assess potential interference at the narrowest concrete shared responsibility, interface, data contract, or intended edit supported by the plans and current repository facts.
