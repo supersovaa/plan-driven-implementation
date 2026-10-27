@@ -35,13 +35,12 @@ Keep already-completed plans in their established authoritative historical recor
 Keep shared indexes responsible for navigation and relationships rather than repeating independently changing plan states.
 Prefer semantic identity over dates or sequence numbers for work units.
 
-## Choose the smallest sufficient work record
+## Support unnumbered implementation plans
 
-Treat the need for a durable implementation plan and the need for a numbered work series as separate decisions.
-For a bounded independent one-off whose purpose and validation can be fully recorded in one pull request, use that pull request as the work record under the repository's normal change workflow.
-When an independent one-off needs a durable implementation contract, create an unnumbered semantic plan with the usual plan state and completion rules.
-Use the repository's work-number workflow for active-series work or for establishing a new series when staged coordination calls for numbering.
-Honor any applicable workflow or repository-specific rule requiring persistent planning for the selected work, including the handoff from changes to already implemented features.
+Treat a plan's work number as an optional tracking attribute governed by the repository's work-number workflow.
+When planning is required for an independent one-off, create an unnumbered semantic plan with the usual plan contract, durable state, and completion rules.
+Apply the same planning semantics to numbered and unnumbered plans. The surrounding work-selection workflow decides when a single pull request suffices as the work record.
+Honor applicable workflow and repository requirements for persistent planning, including the handoff from changes to already implemented features.
 
 ## Consider prerequisite refactoring
 
