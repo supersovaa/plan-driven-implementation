@@ -61,5 +61,7 @@ Once implementation starts, its active plan stays fixed for that attempt.
 Implementation-time discoveries within the existing boundary belong to implementation and its recorded result.
 `result.md` records what the implementation established directly rather than only as deviations from `plan.md`.
 
-Direct dependencies express required predecessor results. Concurrency conflicts are separate planning metadata: they prevent simultaneous execution of independently completable plans without imposing an execution order or restricting otherwise-permitted implementation choices.
+Independent one-off work requiring durable planning can use an unnumbered semantic plan with the ordinary contract and state. Work-record selection and numbered-series lifecycle belong to the surrounding work-selection workflow, which can use a pull request and its verification evidence for suitable one-offs.
+
+Direct plan dependencies describe predecessor results still pending on the relevant base branch. Once a result is established there, current requirements/design and verified repository behavior are the baseline; completed plans remain navigable history. Concurrency conflicts are separate planning metadata: they prevent simultaneous execution of independently completable plans without imposing an execution order or restricting otherwise-permitted implementation choices.
 Transient states such as readiness, blocking, or active execution remain runtime concerns.
