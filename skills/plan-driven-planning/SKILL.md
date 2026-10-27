@@ -35,6 +35,14 @@ Keep already-completed plans in their established authoritative historical recor
 Keep shared indexes responsible for navigation and relationships rather than repeating independently changing plan states.
 Prefer semantic identity over dates or sequence numbers for work units.
 
+## Choose the smallest sufficient work record
+
+Treat the need for a durable implementation plan and the need for a numbered work series as separate decisions.
+For a bounded independent one-off whose purpose and validation can be fully recorded in one pull request, use that pull request as the work record under the repository's normal change workflow.
+When an independent one-off needs a durable implementation contract, create an unnumbered semantic plan with the usual plan state and completion rules.
+Use the repository's work-number workflow for active-series work or for establishing a new series when staged coordination calls for numbering.
+Honor any repository-specific rule requiring persistent planning for the selected work.
+
 ## Consider prerequisite refactoring
 
 Before defining a new implementation boundary, inspect how the planned behavior fits responsibilities already present in the current repository state.
@@ -132,11 +140,12 @@ If the user has decided to defer the responsibility but the destination cannot y
 
 ## Record dependencies and concurrency constraints centrally
 
-Determine direct plan dependencies and record them in the nearest common `index.md` for the plans they relate to.
-A direct dependency means that one plan requires the established result of another plan before it can be implemented.
-Every prerequisite result required by a plan must either already be established or have a planned owner.
-When an unestablished prerequisite result has no planned owner, assign its ownership using the normal implementation-boundary rules.
-When that ownership belongs to a separate plan, record the dependent plan's direct dependency on that plan.
+Evaluate prerequisite results against the latest relevant base branch.
+When a prerequisite is already established there, reference its current requirements/design canon and verified repository behavior as the baseline. Its completed producing plan remains available as historical evidence rather than an active plan dependency.
+When a prerequisite still needs to be established, identify its producing work and record a direct dependency on the pending plan in the nearest common `index.md`. A result recorded as completed but awaiting integration into the relevant base branch remains a prerequisite for execution until that result is available there.
+Every prerequisite result required by a plan must either be established on the relevant base branch or have a planned owner and an explicit path to availability.
+When an unestablished prerequisite has no planned owner, assign ownership using the normal implementation-boundary rules and record a direct dependency when it belongs to a separate plan.
+When revising the affected planning index, express dependencies still pending for current work while retaining completed plan records as navigable history.
 
 Also determine known concurrency constraints between plans and record them in the nearest common `index.md`.
 Assess potential interference at the narrowest concrete shared responsibility, interface, data contract, or intended edit supported by the plans and current repository facts.
