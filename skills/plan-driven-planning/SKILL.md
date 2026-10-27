@@ -41,7 +41,7 @@ Treat the need for a durable implementation plan and the need for a numbered wor
 For a bounded independent one-off whose purpose and validation can be fully recorded in one pull request, use that pull request as the work record under the repository's normal change workflow.
 When an independent one-off needs a durable implementation contract, create an unnumbered semantic plan with the usual plan state and completion rules.
 Use the repository's work-number workflow for active-series work or for establishing a new series when staged coordination calls for numbering.
-Honor any repository-specific rule requiring persistent planning for the selected work.
+Honor any applicable workflow or repository-specific rule requiring persistent planning for the selected work, including the handoff from changes to already implemented features.
 
 ## Consider prerequisite refactoring
 
