@@ -15,7 +15,7 @@ Project settled requirements and design into implementation work.
 When they already support a coherent implementation plan, use them as-is.
 
 Require every design-significant responsibility, boundary, structure, interface, and behavior decision reflected in the plan—including failure guarantees such as rollback, restoration, or unchanged state in completion criteria or referenced test expectations—to be established by settled requirements or settled design.
-Treat current repository responsibilities and behavior as baseline facts for mapping those established decisions onto implementation, not as authority to add or change design.
+Treat current repository responsibilities and behavior—including examples, fixtures, registered data, counts, and complete current collections—as baseline facts for mapping those established decisions onto implementation. Use them to describe the starting state and validation surfaces. Promote a baseline fact into a completion requirement when settled requirements or design establish the corresponding property.
 Derive planning decisions such as implementation boundaries, dependencies, concurrency constraints, and completion criteria from those established inputs and baseline facts.
 
 When multiple design alternatives remain compatible with the established inputs, return the design choice to its owning workflow when it must be settled upstream, or leave implementation mechanics to the implementation phase when the plan does not need that choice.
@@ -96,7 +96,7 @@ Classify limitations observed in the current repository as baseline facts.
 Evaluate plan quality by tracing every required delta to a concrete owner, completion criterion, and validation obligation.
 A planning finding exists when that trace exposes an ownership, dependency, staging, or validation gap.
 For staged work, evaluate temporary behavior against the stage that owns it and trace deferred full behavior to its planned owner.
-Treat current repository examples, fixtures, and registered data as baseline context, and evaluate validation against the planned completion contract, including planned fixtures or test data when the contract requires them.
+Evaluate validation against the planned completion contract, including planned fixtures or test data when the contract requires them.
 
 ## Link settled test evidence definitions before execution readiness
 
