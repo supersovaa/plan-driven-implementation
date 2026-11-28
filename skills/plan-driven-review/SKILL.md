@@ -1,11 +1,11 @@
 ---
 name: plan-driven-review
-description: Supplement code review for an implementation attempt tracked by plan and result records. Judge the outcome against the durable plan state and boundary.
+description: Use when reviewing implementation work in a repository that tracks plans and results. Supplement ordinary code review.
 ---
 
 # Plan-Driven Review
 
-Add these checks to normal code review when a durable plan state and plan/result records govern the implementation attempt. The normal review workflow supplies the general review method.
+Read the plan’s durable state to determine which checks apply to the implementation attempt and its result record. Use the normal review workflow for general code-review methodology.
 
 ## Review according to plan state
 
