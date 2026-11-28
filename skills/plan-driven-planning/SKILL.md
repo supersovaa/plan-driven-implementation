@@ -1,13 +1,11 @@
 ---
 name: plan-driven-planning
-description: Create, update, replace, and evaluate small, repository-persistent implementation plans from already-settled requirements and design while preserving those upstream decisions, including plan-validity review, with explicit boundaries, dependencies, concurrency constraints, validation obligations, and durable state.
+description: Use when creating, revising, replacing, or assessing implementation plans kept in a repository.
 ---
 
 # Plan-Driven Planning
 
-Use this skill after the relevant requirements and design decisions are settled, when creating, revising, replanning, or evaluating an implementation plan for validity.
-Treat those upstream decisions as established inputs.
-Project them into implementation work rather than reopening them during planning.
+Use the settled requirements and design as inputs when creating or evaluating a plan. Apply the relevant planning rules to its boundaries, dependencies, and validation obligations.
 
 ## Preserve settled design provenance
 
