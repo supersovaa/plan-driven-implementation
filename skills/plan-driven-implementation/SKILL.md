@@ -1,12 +1,11 @@
 ---
 name: plan-driven-implementation
-description: Execute one explicitly selected implementation plan while preserving its boundary, recording the actual result, auditing completion, and stopping cleanly when the boundary requires replanning.
+description: Use when executing an implementation plan in a plan-driven workflow. Keep each attempt within one selected plan.
 ---
 
 # Plan-Driven Implementation
 
-Use this skill to execute one explicitly selected implementation plan.
-Begin from the selected plan and established execution readiness.
+Begin implementation only when one plan has been explicitly selected and is ready for execution. Use its boundary when deciding which changes to make and when to stop for replanning.
 
 ## Read the implementation contract
 
