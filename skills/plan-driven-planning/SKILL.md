@@ -1,11 +1,11 @@
 ---
 name: plan-driven-planning
-description: Create, revise, replace, or assess a small implementation plan kept in the repository. Start from settled requirements and design.
+description: Use when creating, revising, replacing, or assessing implementation plans kept in a repository.
 ---
 
 # Plan-Driven Planning
 
-Create, revise, replace, or assess an implementation plan once the relevant requirements and design are settled. Treat those decisions as inputs throughout planning.
+Use the settled requirements and design as inputs when creating or evaluating a plan. Apply the relevant planning rules to its boundaries, dependencies, and validation obligations.
 
 ## Preserve settled design provenance
 
